@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <>
       <div
-        className="w-full h-[75vh] md:h-[100vh] relative hero-clip-path"
+        className="w-full h-[80vh] md:h-[100vh] relative hero-clip-path"
         style={{
           backgroundImage: 'url("/Image/yiying (2).png")',
           backgroundRepeat: "no-repeat",

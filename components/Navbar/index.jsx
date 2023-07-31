@@ -2,12 +2,14 @@ import React from "react";
 import HeaderTop from "./partials/HeaderTop";
 import Navigation from "./partials/Navigation";
 
+import { motion } from "framer-motion";
+
 const Navbar = () => {
   return (
-    <div>
+    <motion.div>
       <HeaderTop />
       <Navigation />
-    </div>
+    </motion.div>
   );
 };
 

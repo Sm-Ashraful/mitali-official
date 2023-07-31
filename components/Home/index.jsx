@@ -5,6 +5,7 @@ import Service from "./partials/Service";
 import Partner from "./partials/Partner";
 import Support from "./partials/Support";
 import HowService from "./partials/HowService";
+import Gallery from "./partials/Gelery";
 
 const Homepage = () => {
   return (
@@ -15,6 +16,7 @@ const Homepage = () => {
       <Partner />
       <Support />
       <HowService />
+      <Gallery />
     </div>
   );
 };

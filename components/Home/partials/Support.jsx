@@ -7,7 +7,9 @@ const Support = () => {
         <div className="mr-6 w-full md:w-3/5">
           <div className="pb-5">
             <p className="text-slate-500 font-Rubik text-[18px]">Welcome to</p>
-            <p className="text-[36px] font-bold">M/S Mitali International</p>
+            <p className="text-[24px] md:text-[36px] font-bold">
+              M/S Mitali International
+            </p>
           </div>
           <p className="text-[10pt] text-slate-500 font-Inter leading-[26px] ">
             As a full-service Inbound, Outbound, and Business Process

@@ -118,7 +118,9 @@ const Service = () => {
         professionals from technical backgrounds, encompassing a wide range of
         BPO services.
       </h4>
-      <div className="grid md:grid-cols-3 gap-8">{visibleServiceCards}</div>
+      <div className="grid md:grid-cols-3 gap-4 md:gap-8">
+        {visibleServiceCards}
+      </div>
       {!showAll && (
         <div className="mx-auto pt-5 gap-3 w-full flex flex-col items-center justify-center cursor-pointer">
           <p

@@ -4,10 +4,10 @@ import StepCard from "./StepCard";
 const HowService = () => {
   return (
     <div className="px-2 md:px-16 mt-20">
-      <h2 className="text-[38px] leading-9 text-[#464855] text-center font-[800] mb-[20px]">
+      <h2 className="text-[28px] md:text-[38px] leading-9 text-[#464855] text-center font-[800] mb-[20px]">
         Empowering Success: Excellence at Every Step
       </h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10">
+      <div className="grid md:grid-cols-4 gap-2 md:gap-4 pt-5 md:pt-10">
         <StepCard
           link={"/Image/step/images (9).jpg"}
           title={"Training and Development"}
