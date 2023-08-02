@@ -109,7 +109,10 @@ const Service = () => {
   return (
     <div className="px-2 md:px-16 mt-20">
       <h2 className="text-[38px] leading-9 text-[#464855] text-center font-[800] mb-[20px]">
-        Meet Our Service
+        <p className="text-slate-500 font-Rubik text-[8px] md:text-[14px]">
+          Building Trust, Building Tomorrow
+        </p>
+        <span>Meet Our Service</span>
       </h2>
       <h4 className="text-center text-[#464855] mb-[3rem] text-[20px]">
         We offer a comprehensive inbound and outbound call center solution,

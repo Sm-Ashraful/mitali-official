@@ -2,7 +2,7 @@ import React from "react";
 
 const Support = () => {
   return (
-    <div className="w-full mt-20 py-10 h-auto  md:h-[70vh] bg-[#fafafa]">
+    <div className="w-full mt-20 py-10 h-auto  md:h-[90vh] bg-[#fafafa]">
       <div className="px-2 md:px-16 flex flex-col md:flex-row justify-between">
         <div className="mr-6 w-full md:w-3/5">
           <div className="pb-5">

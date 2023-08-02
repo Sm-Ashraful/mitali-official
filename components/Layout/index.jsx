@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/honeyhut logo.png" />
       </Head>
-      <main className="min-h-screen max-w-[1440px]">
+      <main className="min-h-screen max-w-[1440px] mx-auto">
         <Navbar />
         {children}
       </main>

@@ -16,21 +16,21 @@ const HowService = () => {
           }
         />
         <StepCard
-          link={"/Image/step/images (3).jpg"}
+          link={"/Image/step/Implementing Advanced Technology.png"}
           title={"Implementing Advanced Technology"}
           des={
             "Invest in continuous training programs for our agents to improve their communication skills, product knowledge, and problem-solving abilities."
           }
         />
         <StepCard
-          link={"/Image/step/images (4).jpg"}
+          link={"/Image/step/Monitoring and Quality Assurance.png"}
           title={"Monitoring and Quality Assurance"}
           des={
             " Regularly monitor calls and interactions to maintain service quality and identify areas for improvement."
           }
         />
         <StepCard
-          link={"/Image/step/download.jpg"}
+          link={"/Image/step/Personalization.png"}
           title={"Personalization"}
           des={
             "Tailor interactions to meet individual customer needs, providing a more personalized and engaging experience."
@@ -44,21 +44,21 @@ const HowService = () => {
           }
         />
         <StepCard
-          link={"/Image/step/images (6).jpg"}
+          link={"/Image/step/Feedback and Customer Surveys.png"}
           title={"Feedback and Customer Surveys"}
           des={
             "Gather feedback from customers through surveys and feedback forms to gain insights into their satisfaction levels and identify areas for improvement."
           }
         />
         <StepCard
-          link={"/Image/step/download (1).jpg"}
+          link={"/Image/step/Employee Engagement.png"}
           title={"Employee Engagement"}
           des={
             "Focus on fostering a positive work environment, promoting employee satisfaction, and recognizing and rewarding exceptional performance."
           }
         />
         <StepCard
-          link={"/Image/step/download (1).png"}
+          link={"/Image/step/proactive issue resolution.png"}
           title={"Proactive Issue Resolution"}
           des={
             "Anticipate potential issues and address them proactively to prevent customer dissatisfaction."

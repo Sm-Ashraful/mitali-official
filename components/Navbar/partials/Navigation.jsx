@@ -1,11 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaFacebookF, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { AiOutlineCaretDown } from "react-icons/ai";
 
-const Navigation = () => {
+import useDimensions from "@/components/Hook/use-dimension";
+
+const sidebar = {
+  open: (height = 1000) => ({
+    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+    transition: {
+      type: "spring",
+      stiffness: 20,
+      restDelta: 2,
+    },
+  }),
+  closed: {
+    clipPath: "circle(30px at 40px 40px)",
+    transition: {
+      delay: 0.5,
+      type: "spring",
+      stiffness: 400,
+      damping: 40,
+    },
+  },
+};
+
+const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
   const [nav, setNav] = useState("");
-  const [currentScroll, setCurrentScroll] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef(null);
+  // const { height } = useDimensions(containerRef);
   const genericHamburgerLine = `h-1 w-6 my-[2px] rounded-full bg-[#013953] transition ease transform duration-300`;
 
   useEffect(() => {
@@ -17,9 +40,9 @@ const Navigation = () => {
       if (currentScrollY < prevScrollY) {
         // User is scrolling up, hide the navigation
         setNav("");
-      } else if (currentScrollY > 200 && window.innerWidth < 768) {
+      } else if (currentScrollY > 800 && window.innerWidth < 768) {
         setNav("fixed top-0 left-0 bg-[#F0EAD6]");
-      } else if (currentScrollY > 500) {
+      } else if (currentScrollY > 700) {
         setNav("fixed top-0 left-0 bg-[#F0EAD6]");
       } else {
         setNav("");
@@ -36,6 +59,11 @@ const Navigation = () => {
     };
   }, []);
 
+  const onMenuClickHandler = () => {
+    setIsOpen(!isOpen);
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div
       className={`flex justify-between items-center border-b px-2 md:px-16 py-3 ${nav} z-50`}
@@ -46,7 +74,7 @@ const Navigation = () => {
       <div className="md:hidden">
         <button
           className="flex flex-col h-10 w-10 border-2 border-[#0272A7] justify-center items-center group"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={onMenuClickHandler}
         >
           <div
             className={`${genericHamburgerLine} ${
