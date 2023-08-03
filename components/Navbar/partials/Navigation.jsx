@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaFacebookF, FaLinkedin, FaWhatsapp } from "react-icons/fa";
-import { AiOutlineCaretDown } from "react-icons/ai";
 
 import useDimensions from "@/components/Hook/use-dimension";
+import Navbar from "./Navbar";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -41,9 +41,9 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
         // User is scrolling up, hide the navigation
         setNav("");
       } else if (currentScrollY > 800 && window.innerWidth < 768) {
-        setNav("fixed top-0 left-0 bg-[#F0EAD6]");
+        setNav("fixed top-0 left-0 bg-white");
       } else if (currentScrollY > 700) {
-        setNav("fixed top-0 left-0 bg-[#F0EAD6]");
+        setNav("fixed top-0 left-0 bg-white");
       } else {
         setNav("");
       }
@@ -66,7 +66,7 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
 
   return (
     <div
-      className={`flex justify-between items-center border-b px-2 md:px-16 py-3 ${nav} z-50`}
+      className={`flex justify-between items-center border-b px-2 md:px-10 lg:px-16 xl:px-20 py-3 ${nav} z-50`}
     >
       <div className="w-[40%] mx-auto md:w-[14%]">
         <img src="/Image/logo png.png" alt="logo.jpg" />
@@ -97,38 +97,37 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
           />
         </button>
       </div>
-      <nav className="hidden md:block bg-gradient-to-b from-[#0272A7] to-[#013953] flex-1 mx-[6rem] rounded-md py-3">
-        <ul className="flex font-Allerta gap-8 pl-5 text-white font-[500] ">
-          <li>Home</li>
-          <li>Our Profile</li>
-          <li className="flex justify-center items-center gap-1">
-            <span> Service</span>
-            <AiOutlineCaretDown />
-          </li>
-          <li className="flex justify-center items-center  gap-1">
-            <span>Business</span>
-            <AiOutlineCaretDown />
-          </li>
-          <li className="flex justify-center items-center  gap-1">
-            <span>Support</span>
-            <AiOutlineCaretDown />
-          </li>
-          <li className="flex justify-center items-center  gap-1">
-            <span>Career</span>
-            <AiOutlineCaretDown />
-          </li>
-        </ul>
+      <nav className="hidden md:block bg-gradient-to-b from-[#0272A7] to-[#013953] flex-1 mx-[5rem] xl:mx-[9rem] rounded-md py-3">
+        <Navbar className="flex" />
       </nav>
       <div>
-        <ul className="hidden md:flex gap-5 text-[#0479ae] ">
+        <ul className="hidden md:flex gap-2 text-[#0479ae]">
           <li>
-            <FaFacebookF />
+            <div class="hexagon-wrapper">
+              <div class="hexagon">
+                <span>
+                  <FaFacebookF />
+                </span>
+              </div>
+            </div>
           </li>
           <li>
-            <FaLinkedin />
+            <div class="hexagon-wrapper">
+              <div class="hexagon">
+                <span>
+                  <FaLinkedin />
+                </span>
+              </div>
+            </div>
           </li>
           <li>
-            <FaWhatsapp />
+            <div class="hexagon-wrapper">
+              <div class="hexagon">
+                <span>
+                  <FaWhatsapp />
+                </span>
+              </div>
+            </div>
           </li>
         </ul>
       </div>

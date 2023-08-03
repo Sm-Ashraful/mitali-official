@@ -11,7 +11,7 @@ const Homepage = () => {
   return (
     <div>
       <Hero />
-      <Branding />
+
       <Support />
       <Service />
       <Partner />

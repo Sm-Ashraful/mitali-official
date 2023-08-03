@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import {
   Navigation,
   Pagination,
@@ -25,7 +25,7 @@ const Gallery = () => {
         <h2 className="text-[38px] leading-9 text-[#464855] text-center font-[800] mb-[20px]">
           Latest Updates
         </h2>
-        <div className="flex flex-col md:flex-row w-full mt-5 md:mt-10 gap-10  md:h-[60vh]">
+        <div className="flex flex-col md:flex-row w-full mt-5 md:mt-10 gap-10 h-auto lg:h-[18rem] xl:h-[24rem]">
           <div className="relative w-full md:w-[50%] h-full">
             <Swiper
               slidesPerView={1}
@@ -43,7 +43,7 @@ const Gallery = () => {
               <SwiperSlide>
                 <img src="/Image/profile/cover-3.jpeg" alt="cover" />
                 <div className="absolute bottom-0 left-0 bg-white opacity-80 py-2 px-4">
-                  <h1 className="text-[24px] font-bold text-[#052149]">
+                  <h1 className="text-[18px] font-bold text-[#052149]">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Aperiam, exercitationem?
                   </h1>
@@ -81,7 +81,7 @@ const Gallery = () => {
             <h2 className="text-[32px] leading-9 text-[#464855] font-[800] pb-5">
               Demo content
             </h2>
-            <p className="text-[10pt] text-slate-500 font-Inter leading-[26px]">
+            <p className="text-[10pt] xl:text-[20pt] text-slate-500 font-Inter leading-[26px] xl:leading-[32px]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
               repellendus placeat quidem atque, et mollitia voluptatibus aperiam
               odio a sed, doloribus, explicabo repellat. Illo, delectus. Dolorum
@@ -99,16 +99,17 @@ const Gallery = () => {
         <div className="w-full h-[40vh] mt-10">
           <Swiper
             effect={"coverflow"}
-            slidesPerView={1}
+            slidesPerView={3}
             spaceBetween={30}
+            centeredSlides={true}
             speed={980}
             pagination={{
               clickable: true,
             }}
             coverflowEffect={{
-              rotate: 150,
+              rotate: 160,
               stretch: 0,
-              depth: 150,
+              depth: 120,
               modifier: 1,
               slideShadows: true,
             }}
@@ -127,6 +128,10 @@ const Gallery = () => {
               980: {
                 width: 980,
                 slidesPerView: 3,
+              },
+              1580: {
+                width: 1580,
+                slidePerView: 4,
               },
             }}
           >

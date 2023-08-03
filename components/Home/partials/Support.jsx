@@ -2,7 +2,7 @@ import React from "react";
 
 const Support = () => {
   return (
-    <div className="w-full mt-20 py-10 h-auto  md:h-[90vh] bg-[#fafafa]">
+    <div className="w-full mt-20 py-10 h-auto bg-[#fafafa]">
       <div className="px-2 md:px-16 flex flex-col md:flex-row justify-between">
         <div className="mr-6 w-full md:w-3/5">
           <div className="pb-5">
@@ -11,7 +11,7 @@ const Support = () => {
               M/S Mitali International
             </p>
           </div>
-          <p className="text-[10pt] text-slate-500 font-Inter leading-[26px] ">
+          <p className="text-[10pt] xl:text-[20pt] text-slate-500 font-Inter leading-[26px] xl:leading-[30px]">
             As a full-service Inbound, Outbound, and Business Process
             Outsourcing company, we are proud to serve a vast array of
             businesses worldwide. At M/S Mitali International, we provide

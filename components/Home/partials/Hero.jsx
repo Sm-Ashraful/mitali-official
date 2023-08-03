@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Typewriter from "typewriter-effect";
+import Branding from "./brand";
 
 const Hero = () => {
   return (
-    <>
+    <div className="relative">
       <div
-        className="w-full h-[80vh] md:h-[100vh] relative hero-clip-path"
+        className="w-full h-[70vh] lg:h-[100vh] xl:h-[90vh] relative hero-clip-path"
         style={{
           backgroundImage: 'url("/Image/yiying (2).png")',
           backgroundRepeat: "no-repeat",
@@ -28,7 +29,7 @@ const Hero = () => {
             zIndex: "-1",
           }}
         />
-        <div class="bg-clip-border custom-clip-path w-full h-16 bg-gradient-to-r from-[#045c94]  to-[#0479ae]"></div>
+        <div class="bg-clip-border custom-clip-path w-full h-12  bg-gradient-to-r from-[#045c94]  to-[#0479ae]"></div>
         <div className="flex flex-col justify-center items-center w-full h-[75%]  text-[#052149]  gap-4 z-10">
           <div className="flex flex-col justify-center items-center text-white z-10">
             <p className="font-[800] font-Work uppercase text-[#0f1235] text-[15px] md:text-[18px]">
@@ -70,9 +71,9 @@ const Hero = () => {
           <button>
             <a
               href="#_"
-              class="z-20 relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-black hover:text-white bg-[#F89640] rounded-lg group"
+              class="z-20 relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-white hover:text-black bg-[#0f1235]  rounded-lg group meeting-clip-path"
             >
-              <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#0f1235] rounded-full group-hover:w-56 group-hover:h-56"></span>
+              <span class="absolute w-0 h-0 transition-all duration-500 ease-out rounded-full bg-[#F89640]  group-hover:w-56 group-hover:h-56"></span>
               <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-[#045c94]"></span>
               <span class="relative">Request For Enquire</span>
             </a>
@@ -93,7 +94,8 @@ const Hero = () => {
           </defs>
         </svg>
       </div>
-    </>
+      <Branding />
+    </div>
   );
 };
 
