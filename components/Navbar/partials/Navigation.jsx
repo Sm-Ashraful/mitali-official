@@ -66,7 +66,7 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
 
   return (
     <div
-      className={`flex justify-between items-center border-b px-2 md:px-10 lg:px-16 xl:px-20 py-3 ${nav} z-50`}
+      className={`flex justify-between items-center border-b px-2 md:px-10 xl:px-16 2xl:px-20 py-3 ${nav} z-50`}
     >
       <div className="w-[40%] mx-auto md:w-[14%]">
         <img src="/Image/logo png.png" alt="logo.jpg" />
