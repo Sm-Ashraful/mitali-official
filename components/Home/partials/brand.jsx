@@ -10,7 +10,7 @@ const Branding = () => {
         backgroundPosition: "center", // Set an appropriate height for the hero section
         backgroundBlendMode: "multiply",
       }}
-      className="overflow-hidden -mt-5 w-full md:w-[50%] pt-5 md:pt-0 md:flex items-center h-[140px] bg-gradient-to-r from-[#045c94]  to-[#0479ae] absolute left-0 md:left-[25%] -bottom-[4%] lg:-bottom-[5%] xl:bottom-0 z-20 rounded-md"
+      className="overflow-hidden -mt-5 w-full md:w-[50%] pt-5 md:pt-0 md:flex items-center h-[140px] bg-gradient-to-r from-[#045c94]  to-[#0479ae] absolute left-0 md:left-[25%] -bottom-[4%] lg:-bottom-[5%] 2xl:bottom-0 z-20 rounded-md"
     >
       <div
         style={{

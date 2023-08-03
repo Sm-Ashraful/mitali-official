@@ -81,7 +81,7 @@ const Gallery = () => {
             <h2 className="text-[32px] leading-9 text-[#464855] font-[800] pb-5">
               Demo content
             </h2>
-            <p className="text-[10pt] xl:text-[20pt] text-slate-500 font-Inter leading-[26px] xl:leading-[32px]">
+            <p className="text-[10pt] 2xl:text-[20pt] text-slate-500 font-Inter leading-[26px] xl:leading-[32px]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
               repellendus placeat quidem atque, et mollitia voluptatibus aperiam
               odio a sed, doloribus, explicabo repellat. Illo, delectus. Dolorum

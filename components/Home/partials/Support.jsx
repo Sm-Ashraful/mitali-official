@@ -11,7 +11,7 @@ const Support = () => {
               M/S Mitali International
             </p>
           </div>
-          <p className="text-[10pt] xl:text-[20pt] text-slate-500 font-Inter leading-[26px] xl:leading-[30px]">
+          <p className="text-[10pt] 2xl:text-[20pt] text-slate-500 font-Inter leading-[26px] xl:leading-[30px]">
             As a full-service Inbound, Outbound, and Business Process
             Outsourcing company, we are proud to serve a vast array of
             businesses worldwide. At M/S Mitali International, we provide

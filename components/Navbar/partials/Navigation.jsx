@@ -66,7 +66,7 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
 
   return (
     <div
-      className={`flex justify-between items-center border-b px-2 md:px-10 xl:px-16 2xl:px-20 py-3 ${nav} z-50`}
+      className={`flex justify-between items-center border-b px-2  md:px-16 2xl:px-20 py-3 ${nav} z-50`}
     >
       <div className="w-[40%] mx-auto md:w-[14%]">
         <img src="/Image/logo png.png" alt="logo.jpg" />
@@ -97,7 +97,7 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
           />
         </button>
       </div>
-      <nav className="hidden md:block bg-gradient-to-b from-[#0272A7] to-[#013953] flex-1 mx-[4rem] xl:mx-[9rem] rounded-md py-3">
+      <nav className="hidden md:block bg-gradient-to-b from-[#0272A7] to-[#013953] flex-1 mx-[5rem] 2xl:mx-[9rem] rounded-md py-3">
         <Navbar className="flex" />
       </nav>
       <div>
