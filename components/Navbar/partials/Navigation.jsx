@@ -97,7 +97,7 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
           />
         </button>
       </div>
-      <nav className="hidden md:block bg-gradient-to-b from-[#0272A7] to-[#013953] flex-1 mx-[5rem] xl:mx-[9rem] rounded-md py-3">
+      <nav className="hidden md:block bg-gradient-to-b from-[#0272A7] to-[#013953] flex-1 mx-[4rem] xl:mx-[9rem] rounded-md py-3">
         <Navbar className="flex" />
       </nav>
       <div>
