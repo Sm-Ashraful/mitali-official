@@ -13,7 +13,7 @@ const HeaderTop = () => {
           <div className="">
             <p className="md:text-xl 2xl:text-2xl"> Location</p>
             <p className="text-[9px] md:text-[16px] 2xl:text-[20px]">
-              4301 Pleasantdale Rd, Unit G Doraville, GA 30340
+              House 11, Road 7, Sector 10, Uttara, Dhaka-1230
             </p>
           </div>
         </div>
@@ -30,7 +30,7 @@ const HeaderTop = () => {
         <p className="text-[14px] 2xl:text-4xl">
           <BsTelephoneFill />
         </p>
-        <span className="hidden md:block 2xl:text-2xl">+123 4567 89</span>
+        <span className="hidden md:block 2xl:text-2xl">+09606-919505</span>
       </div>
     </div>
   );

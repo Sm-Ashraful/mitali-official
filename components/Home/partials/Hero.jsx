@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Typewriter from "typewriter-effect";
 import Branding from "./brand";
+import PopUp from "@/components/popup";
 
-const Hero = () => {
+const Hero = ({ formPopupOpen }) => {
   return (
     <div className="relative">
       <div
@@ -68,7 +69,8 @@ const Hero = () => {
             We collaborate with businesses to optimize operations, sustain
             profitable growth, and accelerate into the digital age.
           </h3>
-          <button>
+
+          <button onClick={formPopupOpen}>
             <a
               href="#_"
               class="z-20 relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-white hover:text-black bg-[#0f1235]  rounded-lg group meeting-clip-path"

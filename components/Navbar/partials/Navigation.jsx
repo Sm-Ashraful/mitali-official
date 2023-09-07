@@ -106,7 +106,9 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
             <div class="hexagon-wrapper">
               <div class="hexagon">
                 <span>
-                  <FaFacebookF />
+                  <a href="https://www.facebook.com/mitaliint.info">
+                    <FaFacebookF />
+                  </a>
                 </span>
               </div>
             </div>
@@ -115,7 +117,9 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
             <div class="hexagon-wrapper">
               <div class="hexagon">
                 <span>
-                  <FaLinkedin />
+                  <a href="https://www.linkedin.com/company/m-s-mitali-international/">
+                    <FaLinkedin />
+                  </a>
                 </span>
               </div>
             </div>
