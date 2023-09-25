@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaFacebookF, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 import useDimensions from "@/components/Hook/use-dimension";
-import Navbar from "./Navbar";
+import Nav from "./Navbar";
+import Link from "next/link";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -24,7 +25,7 @@ const sidebar = {
   },
 };
 
-const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
+const Navigation = ({ setIsSidebarOpen, isSidebarOpen, isHomePage }) => {
   const [nav, setNav] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
@@ -41,9 +42,9 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
         // User is scrolling up, hide the navigation
         setNav("");
       } else if (currentScrollY > 800 && window.innerWidth < 768) {
-        setNav("fixed top-0 left-0 bg-white");
+        setNav("fixed top-0 left-0");
       } else if (currentScrollY > 700) {
-        setNav("fixed top-0 left-0 bg-white");
+        setNav("fixed top-0 left-0");
       } else {
         setNav("");
       }
@@ -66,11 +67,19 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
 
   return (
     <div
-      className={`flex justify-between items-center border-b px-2  md:px-16 2xl:px-20 py-3 ${nav} z-50`}
+      className={`w-full flex justify-between items-center border-b px-2  md:px-16 2xl:px-20 py-3 ${nav} z-50 ${
+        !isHomePage
+          ? "bg-transparent absolute top-0 left-0"
+          : "relative bg-white"
+      }`}
     >
-      <div className="w-[40%] mx-auto md:w-[14%]">
-        <img src="/Image/logo png.png" alt="logo.jpg" />
-      </div>
+      <Link href="/" className={`w-[40%] mx-auto md:w-[14%] `}>
+        <img
+          src={!isHomePage ? "/Image/logo1.jpg" : "/Image/logo png.png"}
+          alt="logo.jpg"
+        />
+      </Link>
+
       <div className="md:hidden">
         <button
           className="flex flex-col h-10 w-10 border-2 border-[#0272A7] justify-center items-center group"
@@ -97,8 +106,14 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen }) => {
           />
         </button>
       </div>
-      <nav className="hidden md:block bg-gradient-to-b from-[#0272A7] to-[#013953] flex-1 mx-[5rem] 2xl:mx-[9rem] rounded-md py-3">
-        <Navbar className="flex" />
+      <nav
+        className={`hidden md:block ${
+          isHomePage
+            ? "bg-gradient-to-b from-[#0272A7] to-[#013953]"
+            : "bg-gradient-to-b from-yellow-400 to-yellow-700"
+        } flex-1 mx-[5rem] 2xl:mx-[9rem] rounded-md py-3`}
+      >
+        <Nav className="flex justify-evenly" />
       </nav>
       <div>
         <ul className="hidden md:flex gap-2 text-[#0479ae]">

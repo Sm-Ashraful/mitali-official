@@ -1,10 +1,10 @@
 import React from "react";
 import { AiOutlineCaretDown } from "react-icons/ai";
 
-const Navbar = ({ className }) => {
+const Nav = ({ className }) => {
   return (
     <ul
-      className={`font-Allerta gap-5 xl:gap-12 pl-6 2xl:pl-10 text-white font-[500] 2xl:text-[26px] ${className}`}
+      className={`font-Allerta text-white font-[500] 2xl:text-[26px] ${className}`}
     >
       <li>Home</li>
       <li>Our Profile</li>
@@ -28,4 +28,4 @@ const Navbar = ({ className }) => {
   );
 };
 
-export default Navbar;
+export default Nav;

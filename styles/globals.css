@@ -285,3 +285,20 @@
 .meeting-clip-path {
   clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
 }
+
+/* react calender */
+.react-calendar {
+  width: 100% !important;
+  border: none !important;
+  line-height: 0.75em !important;
+}
+
+.react-calendar__navigation {
+  height: 30px !important;
+  background-color: #045c94;
+  color: white;
+}
+
+.react-calendar button .react-calendar__month-view__days__day--weekend:hover {
+  cursor: not-allowed !important;
+}
