@@ -14,6 +14,8 @@ const Navbar = () => {
   useEffect(() => {
     if (router.pathname !== "/") {
       setIsHomepage(false);
+    } else {
+      setIsHomepage(true);
     }
   }, [router.pathname]);
 
@@ -25,7 +27,9 @@ const Navbar = () => {
         isSidebarOpen={isSidebarOpen}
         isHomePage={isHomePage}
       />
-      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <div className="relative">
+        <Sidebar isSidebarOpen={isSidebarOpen} />
+      </div>
     </motion.div>
   );
 };

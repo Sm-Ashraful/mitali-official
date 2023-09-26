@@ -4,6 +4,7 @@ import { FaFacebookF, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import useDimensions from "@/components/Hook/use-dimension";
 import Nav from "./Navbar";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -29,6 +30,7 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen, isHomePage }) => {
   const [nav, setNav] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
+  const router = useRouter();
   // const { height } = useDimensions(containerRef);
   const genericHamburgerLine = `h-1 w-6 my-[2px] rounded-full bg-[#013953] transition ease transform duration-300`;
 
@@ -77,6 +79,7 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen, isHomePage }) => {
         <img
           src={!isHomePage ? "/Image/logo1.jpg" : "/Image/logo png.png"}
           alt="logo.jpg"
+          className="w-full h-full"
         />
       </Link>
 

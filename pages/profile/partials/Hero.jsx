@@ -3,7 +3,7 @@ import React from "react";
 const HeroProfile = () => {
   return (
     <div
-      className="w-full h-[70vh] lg:h-[80vh] xl:h-[90vh] relative hero-clip-path"
+      className="w-full h-[420px] lg:h-[460px] xl:h-[500px] relative hero-clip-path"
       style={{
         backgroundImage: 'url("/Image/aboutus.jpg")',
         backgroundRepeat: "no-repeat",
@@ -16,10 +16,10 @@ const HeroProfile = () => {
     >
       <div className="flex  items-center px-2  md:px-16 2xl:px-20 w-full h-[75%]  text-slate-950  relative top-[5.5rem] z-10">
         <div className=" z-10 bg-black bg-opacity-[.2]  px-5 py-3">
-          <h3 className=" md:text-[42px] font-bold font-Work text-white">
+          <h3 className="text-[26px] md:text-[42px] font-bold font-Work text-white text-center md:text-left">
             M/S Mitali International
           </h3>
-          <p className="text-white">
+          <p className="text-white text-center md:text-left">
             We understand the critical importance of seamless BPO services,
             effective telemarketing, and reliable outsourcing solutions for
             businesses today.

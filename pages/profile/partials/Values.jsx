@@ -1,19 +1,16 @@
 import React from "react";
 
-const WhyChooseUs = () => {
+const Values = () => {
   return (
-    <div className="relative">
+    <div className="relative w-full mt-10  py-5">
       <h3 className="text-[26px] md:text-[42px] font-bold font-Work text-center pb-5">
-        Why Choose Us?
+        Our Values
       </h3>
       <div className="grid md:grid-cols-2 px-2  md:px-16 2xl:px-20 w-full ">
-        <div>
-          <img src="/Image/why_banner.png" alt="" />
-        </div>
-        <div className="font-Rubik text-sm text-[#777]">
+        <div className="font-Rubik text-sm text-[#777] order-1 md:order-0">
           <p>
-            Our approach is rooted in a blend of innovation, creativity, and a
-            client-centric ethos, ensuring you get nothing but the best.
+            Our values at M/S Mitali International define our culture, guide our
+            decisions, and shape our interactions. We are committed to:
           </p>
 
           <ul>
@@ -27,13 +24,11 @@ const WhyChooseUs = () => {
                   />
                 </span>
                 <span className="text-black text-[15px] font-semibold px-2 text-transparent bg-clip-text bg-gradient-to-r from-[#0479ae]  to-[#045c94]">
-                  Web Development Excellence:
+                  Integrity:
                 </span>
                 <span>
-                  Our dedicated team of web developers excels in crafting
-                  visually stunning and functionally seamless websites. We
-                  breathe life into your concepts, ensuring they leave a
-                  remarkable and lasting digital footprint.
+                  Upholding honesty, transparency, and ethical practices in all
+                  our dealings.
                 </span>
               </p>
             </li>
@@ -47,12 +42,11 @@ const WhyChooseUs = () => {
                   />
                 </span>
                 <span className="text-black text-[15px] font-semibold px-2 text-transparent bg-clip-text bg-gradient-to-r from-[#0479ae]  to-[#045c94]">
-                  Strategic Digital Marketing:
+                  Customer-Centricity:
                 </span>
                 <span>
-                  Our experts analyze, strategize, and execute precise digital
-                  marketing plans, ensuring maximum reach, engagement, and
-                  conversions for your brand.
+                  Putting our clients at the center of everything we do,
+                  striving to exceed their expectations consistently.
                 </span>
               </p>
             </li>
@@ -67,12 +61,11 @@ const WhyChooseUs = () => {
                   />
                 </span>
                 <span className="text-black text-[15px] font-semibold px-2 text-transparent bg-clip-text bg-gradient-to-r from-[#0479ae]  to-[#045c94]">
-                  Creative Graphics Design:
+                  Teamwork:
                 </span>
                 <span>
-                  Our creative graphic designers work tirelessly to translate
-                  your ideas into captivating visuals that tell a compelling
-                  story.
+                  Collaborating and leveraging the collective strength of our
+                  diverse team to achieve shared goals.
                 </span>
               </p>
             </li>
@@ -86,12 +79,11 @@ const WhyChooseUs = () => {
                   />
                 </span>
                 <span className="text-black text-[15px] font-semibold px-2 text-transparent bg-clip-text bg-gradient-to-r from-[#0479ae]  to-[#045c94]">
-                  Client-Centric Approach:
+                  Continuous Improvement:
                 </span>
                 <span>
-                  We prioritize our clients&#39; needs, ensuring customized
-                  solutions that align with their specific requirements,
-                  industry standards, and business goals.
+                  Pursuing ongoing learning, growth, and innovation to deliver
+                  better solutions and value to our clients.
                 </span>
               </p>
             </li>
@@ -105,24 +97,22 @@ const WhyChooseUs = () => {
                   />
                 </span>
                 <span className="text-black text-[15px] font-semibold px-2 text-transparent bg-clip-text bg-gradient-to-r from-[#0479ae]  to-[#045c94]">
-                  Quality and Reliability:
+                  Adaptability:
                 </span>
                 <span>
-                  We strive for excellence and reliability in all our services,
-                  ensuring our clients receive top-notch solutions that add real
-                  value to their businesses.
+                  Embracing change and remaining flexible and agile in response
+                  to evolving business needs and market dynamics.
                 </span>
               </p>
             </li>
           </ul>
         </div>
+        <div className="order-0 md:order-1">
+          <img src="/Image/coreValues.png" alt="" />
+        </div>
       </div>
-      <p className="text-center font-Rubik font-semibold pt-8 md:pt-0">
-        Join hands with us, and let&#39;s embark on a journey of digital
-        transformation and growth, where your success is our ultimate goal.
-      </p>
     </div>
   );
 };
 
-export default WhyChooseUs;
+export default Values;
