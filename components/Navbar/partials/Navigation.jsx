@@ -28,6 +28,7 @@ const sidebar = {
 
 const Navigation = ({ setIsSidebarOpen, isSidebarOpen, isHomePage }) => {
   const [nav, setNav] = useState("");
+  const [onav, setOnav] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
   const router = useRouter();
@@ -45,10 +46,15 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen, isHomePage }) => {
         setNav("");
       } else if (currentScrollY > 800 && window.innerWidth < 768) {
         setNav("fixed top-0 left-0");
+        setOnav("bg-white");
       } else if (currentScrollY > 700) {
         setNav("fixed top-0 left-0");
+        setOnav("bg-white");
       } else {
         setNav("");
+      }
+      if (currentScrollY < 700) {
+        setOnav("");
       }
 
       // Update the previous scroll position with the current one
@@ -69,10 +75,10 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen, isHomePage }) => {
 
   return (
     <div
-      className={`w-full flex justify-between items-center border-b px-2  md:px-16 2xl:px-20 py-3 ${nav} z-50 ${
+      className={`w-full flex justify-between items-center border-b px-2  md:px-16 2xl:px-20 py-3  z-50 ${
         !isHomePage
-          ? "bg-transparent absolute top-0 left-0"
-          : "relative bg-white"
+          ? `bg-transparent fixed top-0 left-0 ${onav}`
+          : `${nav} bg-white`
       }`}
     >
       <Link href="/" className={`w-[40%] mx-auto md:w-[14%] `}>
