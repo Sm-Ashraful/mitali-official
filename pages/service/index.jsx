@@ -1,12 +1,13 @@
 import React from "react";
+import HeroService from "./partials/HeroService";
+import OurService from "./partials/OurService";
 
 const Service = () => {
   return (
-    <div className="w-full h-[100vh] bg-blue-500 flex justify-center items-center">
-      <h1 className="text-[32px]">
-        !!! This is service page. This page is in development mode
-      </h1>
-    </div>
+    <>
+      <HeroService />
+      <OurService />
+    </>
   );
 };
 
