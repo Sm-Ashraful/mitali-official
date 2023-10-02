@@ -1,12 +1,18 @@
 import React from "react";
 
-const ContactForm = () => {
+const ContactForm = ({ formTitle, type }) => {
   return (
     <div>
-      <h2 className="text-[26px] text-center border-b">Enquery Form</h2>
-      <form className="w-full max-w-lg pt-3">
-        <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <h2
+        className={`text-[22px] uppercase font-bold  border-b-2 border-black mr-6 ${
+          type === "help" ? "" : " text-center"
+        }`}
+      >
+        {formTitle || "Enquiry Form"}
+      </h2>
+      <form className="w-full max-w-lg pt-5">
+        <div className="flex flex-wrap -mx-3">
+          <div className="w-full md:w-1/2 px-3 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               for="grid-first-name"
@@ -15,7 +21,7 @@ const ContactForm = () => {
               <span className="text-red-500">*</span>
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-first-name"
               type="text"
               placeholder="Jane"
@@ -29,14 +35,14 @@ const ContactForm = () => {
               Phone number
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-last-name"
               type="phone"
               placeholder="0123 4567 89"
             />
           </div>
         </div>
-        <div className="flex flex-wrap -mx-3 mb-6">
+        <div className="flex flex-wrap -mx-3">
           <div className="w-full px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -46,7 +52,7 @@ const ContactForm = () => {
               <span className="text-red-500">*</span>
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-password"
               type="email"
               placeholder="example@gmail.com"
@@ -54,7 +60,7 @@ const ContactForm = () => {
           </div>
         </div>
         <div className="flex flex-wrap -mx-3 mb-2">
-          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <div className="w-full md:w-1/2 px-3 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               for="grid-state"
@@ -63,7 +69,7 @@ const ContactForm = () => {
             </label>
             <div className="relative">
               <select
-                className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="block appearance-none w-full  border border-black text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-state"
               >
                 <option>Select Category</option>
@@ -85,7 +91,7 @@ const ContactForm = () => {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <div className="w-full md:w-1/2 px-3 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               for="grid-zip"
@@ -93,14 +99,14 @@ const ContactForm = () => {
               Company/Organization
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-zip"
               type="text"
               placeholder="90210"
             />
           </div>
         </div>
-        <div className="w-full  mb-6 md:mb-0">
+        <div className="w-full  md:mb-0">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             for="grid-zip"
@@ -110,14 +116,16 @@ const ContactForm = () => {
           </label>
           <textarea
             rows="4"
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             label="Message"
             required
           />
         </div>
-        <div class="md:flex md:items-center justify-end">
+        <div class={`md:flex md:items-center justify-end `}>
           <button
-            class="shadow   bg-[#0f1235] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            class={`${
+              type === "help" ? "w-full" : ""
+            } shadow   bg-[#0f1235] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded`}
             type="button"
           >
             Submit

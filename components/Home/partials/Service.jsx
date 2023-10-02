@@ -29,75 +29,75 @@ const serviceCards = [
     key={1}
     icon={faCode}
     title={"Web Development & Design"}
-    des1={"Make your eCommerce business future ready"}
-    des2={"3x more revenue"}
-    des3={"Explore your product in International market"}
+    des1={"Optimize User Experience"}
+    des2={"Responsive Design"}
+    des3={"SEO Integration"}
   />,
   <ServiceCard
     key={2}
     icon={faFileExport}
     title={"Export & Import Solution"}
-    des1={"Make your eCommerce business future ready"}
-    des2={"3x more revenue"}
-    des3={"Explore your product in International market"}
+    des1={"Global Logistics Management"}
+    des2={"Customs Documentation"}
+    des3={"Trade Compliance Consulting"}
   />,
   <ServiceCard
     key={3}
     icon={faDisplay}
     title={"Graphics Design"}
-    des1={"Make your eCommerce business future ready"}
-    des2={"3x more revenue"}
-    des3={"Explore your product in International market"}
+    des1={"Branding and Identity"}
+    des2={"Visual Content Creation"}
+    des3={"Print and Digital Design"}
   />,
   <ServiceCard
     key={4}
     icon={faHeadset}
     title={"Telemarketing and sales"}
-    des1={"Make your eCommerce business future ready"}
-    des2={"3x more revenue"}
-    des3={"Explore your product in International market"}
+    des1={"Targeted Lead Generation"}
+    des2={"Customer Relationship Management"}
+    des3={"Sales Performance Analytics"}
   />,
   <ServiceCard
     key={5}
     icon={faDigitalTachograph}
     title={"Digital Marketing"}
-    des1={"Make your eCommerce business future ready"}
-    des2={"3x more revenue"}
-    des3={"Explore your product in International market"}
+    des1={"Social Media Management"}
+    des2={"Search Engine Advertising (SEA)"}
+    des3={" Email Marketing Campaigns"}
   />,
   <ServiceCard
     key={6}
     icon={faLifeRing}
     title={"Customer Support"}
-    des1={"Make your eCommerce business future ready"}
-    des2={"3x more revenue"}
-    des3={"Explore your product in International market"}
+    des1={"24/7 Customer Assistance"}
+    des2={"Multi-channel Support"}
+    des3={"Issue Resolution and Feedback"}
   />,
   <ServiceCard
     key={7}
     icon={faBriefcase}
     title={"Back Office Support"}
-    des1={"Make your eCommerce business future ready"}
-    des2={"3x more revenue"}
-    des3={"Explore your product in International market"}
+    des1={"Administrative Assistance"}
+    des2={"Data Processing and Management"}
+    des3={"Process Automation"}
   />,
 
   <ServiceCard
     key={8}
     icon={faKeyboard}
     title={"Data Entry & Lead Generation"}
-    des1={"Make your eCommerce business future ready"}
-    des2={"3x more revenue"}
-    des3={"Explore your product in International market"}
+    des1={"Accurate Data Entry"}
+    des2={"Lead Identification and Profiling"}
+    des3={"Database Cleansing"}
   />,
 
   <ServiceCard
     key={9}
     icon={faHeadset}
     title={"Virtual Assistance"}
-    des1={"Make your eCommerce business future ready"}
-    des2={"3x more revenue"}
-    des3={"Explore your product in International market"}
+    des1={"Administrative Virtual Assistance"}
+    des2={"Personalized Virtual Support"}
+    des3={"Task Delegation and Efficiency"}
   />,
 ];
 
