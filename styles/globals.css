@@ -316,3 +316,27 @@
   list-style: none; /* Remove default list bullet points */
   margin-bottom: 10px; /* Add spacing between list items */
 }
+.module__top {
+  cursor: move;
+
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.module__top::before {
+  border-radius: 3px 0 0 0;
+  display: block;
+  content: "";
+  flex: 2 0 0;
+  height: 1px;
+  border-top: 2px solid #1fa2ed;
+}
+.module__top::after {
+  border-radius: 0 3px 0 0;
+  display: block;
+  content: "";
+  flex: 2 0 0;
+  height: 1px;
+  border-top: 2px solid #1fa2ed;
+}
