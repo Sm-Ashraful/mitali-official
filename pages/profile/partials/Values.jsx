@@ -6,13 +6,12 @@ const Values = () => {
       <h3 className="text-[26px] md:text-[42px] font-bold font-Work text-center pb-5">
         Our Values
       </h3>
+      <p className="font-Rubik text-sm text-[#777] px-2  md:px-16 2xl:px-20 pb-5">
+        Our values at M/S Mitali International define our culture, guide our
+        decisions, and shape our interactions. We are committed to:
+      </p>
       <div className="grid md:grid-cols-2 px-2  md:px-16 2xl:px-20 w-full ">
         <div className="font-Rubik text-sm text-[#777] order-1 md:order-0">
-          <p>
-            Our values at M/S Mitali International define our culture, guide our
-            decisions, and shape our interactions. We are committed to:
-          </p>
-
           <ul>
             <li>
               <p className="mt-3">

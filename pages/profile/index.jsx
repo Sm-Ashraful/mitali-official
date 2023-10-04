@@ -10,6 +10,7 @@ const Profile = () => {
   return (
     <>
       <HeroProfile />
+
       <WhyChooseUs />
       <Portfolio />
       <Values />

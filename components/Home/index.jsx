@@ -11,7 +11,6 @@ import ArrangeAMeeting from "../arrang-meeting";
 
 const Homepage = () => {
   const [openPopup, setOpenPopup] = useState(false);
-  const [isArrangeMeetingOpen, setIsArrangeMeetingOpen] = useState(false);
 
   const formPopupOpen = (e) => {
     setOpenPopup(true);
@@ -19,16 +18,11 @@ const Homepage = () => {
   const closePopup = (e) => {
     setOpenPopup(false);
   };
+
   return (
     <div className="">
-      <Hero
-        formPopupOpen={formPopupOpen}
-        setIsArrangeMeetingOpen={setIsArrangeMeetingOpen}
-      />
+      <Hero formPopupOpen={formPopupOpen} />
       <PopUp isOpen={openPopup} onClose={closePopup} />
-      {isArrangeMeetingOpen && (
-        <ArrangeAMeeting setIsArrangeMeetingOpen={setIsArrangeMeetingOpen} />
-      )}
 
       <Support />
       <Service />

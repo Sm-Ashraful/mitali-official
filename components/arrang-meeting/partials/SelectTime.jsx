@@ -51,7 +51,7 @@ const SelectTime = ({
   return (
     <div className="font-semibold text-[18px] pb-2 ">
       <p className="border-b border-[#0479ae]">Select A Time:</p>
-      <div className="flex flex-wrap justify-between gap-x-10 gap-y-5 pt-5">
+      <div className="flex flex-wrap justify-evenly gap-y-3 pt-5">
         {clockTime.map((time, idx) => {
           // Parse the time string to get the hour, minute, and AM/PM
           const [hour, minutePart] = time.split(":");
@@ -79,7 +79,7 @@ const SelectTime = ({
           return (
             <button
               key={idx}
-              className={`w-[40%] rounded-xl px-3 py-2 text-sm font-medium transition duration-200 ${
+              className={` rounded-lg px-5 py-2 text-sm font-medium transition duration-200 ${
                 isButtonEnabled
                   ? "bg-[#052149] text-white hover:bg-blue-600 active:bg-yellow-400 focus:bg-yellow-300"
                   : "bg-gray-400 text-gray-700 cursor-not-allowed"

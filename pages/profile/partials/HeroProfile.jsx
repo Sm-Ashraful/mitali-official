@@ -15,14 +15,16 @@ const HeroProfile = () => {
       }}
     >
       <div className="flex  items-center px-2  md:px-16 2xl:px-20 w-full h-[75%]  text-slate-950  relative top-[5.5rem] z-10">
-        <div className=" z-10 bg-black bg-opacity-[.2]  px-5 py-3">
+        <div className=" z-10 bg-[#0A223A] bg-opacity-[.4]  px-5 py-3">
           <h3 className="text-[26px] md:text-[42px] font-bold font-Work text-white text-center md:text-left">
             M/S Mitali International
           </h3>
-          <p className="text-white text-center md:text-left">
-            We understand the critical importance of seamless BPO services,
-            effective telemarketing, and reliable outsourcing solutions for
-            businesses today.
+          <p className="text-white text-center md:text-left font-bold">
+            The Company was successfully established on October 6th, 2015.Since
+            2014 Mitali expands its business up to 400%. We have worked with up
+            to 30 clients/organizations with different projects. Got BACCO
+            membership in early 2021. Nowadays we have a large operational team
+            of 80 employees and we have a gigantic working space of 3000 sq ft.
           </p>
         </div>
       </div>

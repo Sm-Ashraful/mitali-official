@@ -1,6 +1,11 @@
 import React from "react";
+import { useStateValue } from "@/context/StateProvider";
 
-const Branding = ({ setIsArrangeMeetingOpen }) => {
+const Branding = () => {
+  const [{ showModal }, dispatch] = useStateValue();
+  const handleArrangeMeeting = (e) => {
+    dispatch({ type: "setShowModal", item: true });
+  };
   return (
     <div
       style={{
@@ -30,7 +35,7 @@ const Branding = ({ setIsArrangeMeetingOpen }) => {
       </p>
       <div className="mx-auto w-full md:w-2/5 flex justify-center ">
         <button
-          onClick={() => setIsArrangeMeetingOpen(true)}
+          onClick={handleArrangeMeeting}
           class="z-20 relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-Allerta font-medium tracking-tighter text-black hover:text-white bg-[#F89640] rounded-lg group meeting-clip-path"
         >
           <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#0f1235] rounded-full group-hover:w-56 group-hover:h-56"></span>

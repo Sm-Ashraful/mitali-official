@@ -3,7 +3,7 @@ import Typewriter from "typewriter-effect";
 import Branding from "./brand";
 import PopUp from "@/components/popup";
 
-const Hero = ({ formPopupOpen, setIsArrangeMeetingOpen }) => {
+const Hero = ({ formPopupOpen }) => {
   return (
     <div className="relative">
       <div
@@ -96,7 +96,7 @@ const Hero = ({ formPopupOpen, setIsArrangeMeetingOpen }) => {
           </defs>
         </svg>
       </div>
-      <Branding setIsArrangeMeetingOpen={setIsArrangeMeetingOpen} />
+      <Branding />
     </div>
   );
 };

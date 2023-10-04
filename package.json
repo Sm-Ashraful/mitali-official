@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p 3001",
-
     "lint": "next lint"
   },
   "dependencies": {
@@ -16,9 +15,11 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@next/font": "13.4.12",
     "babel-plugin-macros": "^3.1.0",
+    "dayjs": "^1.11.10",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
     "framer-motion": "^10.15.0",
+    "gsap": "^3.12.2",
     "next": "13.4.12",
     "react": "18.2.0",
     "react-calendar": "^4.6.0",

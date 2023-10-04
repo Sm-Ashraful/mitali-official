@@ -316,6 +316,19 @@
   list-style: none; /* Remove default list bullet points */
   margin-bottom: 10px; /* Add spacing between list items */
 }
+.photo_top {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.photo_top::after {
+  border-radius: 0 3px 0 0;
+  display: block;
+  content: "";
+  flex: 1 0 0;
+  height: 1px;
+  border-top: 2px solid #1fa2ed;
+}
 .module__top {
   cursor: move;
 
