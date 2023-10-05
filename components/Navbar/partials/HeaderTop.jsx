@@ -26,12 +26,15 @@ const HeaderTop = () => {
         <span className="px-3 py-2">+123 4567 89</span>
       </div>
     */}
-      <div className="flex text-white border hover:border-black hover:bg-white hover:text-black bg-transparent px-2 md:px-6 py-2  items-center text-[12px] md:rounded overflow-hidden gap-2">
+      <a
+        href="tel:+09606-919505"
+        className="flex text-white border hover:border-black hover:bg-white hover:text-black bg-transparent px-2 md:px-6 py-2  items-center text-[12px] md:rounded overflow-hidden gap-2"
+      >
         <p className="text-[14px] 2xl:text-4xl">
           <BsTelephoneFill />
         </p>
         <span className="hidden md:block 2xl:text-2xl">+09606-919505</span>
-      </div>
+      </a>
     </div>
   );
 };

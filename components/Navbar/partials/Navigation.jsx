@@ -5,6 +5,7 @@ import useDimensions from "@/components/Hook/use-dimension";
 import Nav from "./Navbar";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useStateValue } from "@/context/StateProvider";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -26,10 +27,12 @@ const sidebar = {
   },
 };
 
-const Navigation = ({ setIsSidebarOpen, isSidebarOpen, isHomePage }) => {
+const Navigation = ({ setIsSidebarOpen, isHomePage }) => {
   const [nav, setNav] = useState("");
   const [onav, setOnav] = useState("");
+
   const [isOpen, setIsOpen] = useState(false);
+  const [{ isSidebarOpen }, dispatch] = useStateValue();
   const containerRef = useRef(null);
   const router = useRouter();
   // const { height } = useDimensions(containerRef);
@@ -44,7 +47,7 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen, isHomePage }) => {
       if (currentScrollY < prevScrollY) {
         // User is scrolling up, hide the navigation
         setNav("");
-      } else if (currentScrollY > 800 && window.innerWidth < 768) {
+      } else if (currentScrollY > 500 && window.innerWidth < 768) {
         setNav("fixed top-0 left-0");
         setOnav("bg-white");
       } else if (currentScrollY > 700) {
@@ -68,9 +71,15 @@ const Navigation = ({ setIsSidebarOpen, isSidebarOpen, isHomePage }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isSidebarOpen) {
+      setIsOpen(false);
+    }
+  }, [isSidebarOpen]);
+
   const onMenuClickHandler = () => {
     setIsOpen(!isOpen);
-    setIsSidebarOpen(!isSidebarOpen);
+    dispatch({ type: "setSidebar", item: !isSidebarOpen });
   };
 
   return (

@@ -13,6 +13,7 @@ import { generator, months } from "@/context/calender";
 import cn from "@/context/ch";
 
 import { useStateValue } from "@/context/StateProvider";
+import { useRouter } from "next/router";
 
 const ArrangeMeeting = ({ mobileView }) => {
   const days = ["S", "M", "T", "W", "T", "F", "S"];
@@ -31,6 +32,8 @@ const ArrangeMeeting = ({ mobileView }) => {
   const [showCalendar, setShowCalendar] = useState(true);
   const [showSelectTime, setShowSelectTime] = useState(false);
   const [showMeetingForm, setShowMeetingForm] = useState(false);
+
+  const router = useRouter();
 
   const handleNextButtonClick = () => {
     if (showCalendar) {
@@ -62,7 +65,11 @@ const ArrangeMeeting = ({ mobileView }) => {
   const cancelArrangeMeeting = (e) => {
     dispatch({ type: "setShowModal", item: false });
   };
-
+  useEffect(() => {
+    if (showModal) {
+      dispatch({ type: "setSidebar", item: false });
+    }
+  }, [showModal]);
   //end of state change
 
   return (

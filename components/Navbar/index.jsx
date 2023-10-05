@@ -8,7 +8,6 @@ import Sidebar from "./partials/Sidebar";
 import { useRouter } from "next/router";
 
 const Navbar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isHomePage, setIsHomepage] = useState(true);
   const router = useRouter();
   useEffect(() => {
@@ -22,14 +21,7 @@ const Navbar = () => {
   return (
     <motion.div>
       {isHomePage && <HeaderTop />}
-      <Navigation
-        setIsSidebarOpen={setIsSidebarOpen}
-        isSidebarOpen={isSidebarOpen}
-        isHomePage={isHomePage}
-      />
-      <div className="relative">
-        <Sidebar isSidebarOpen={isSidebarOpen} />
-      </div>
+      <Navigation isHomePage={isHomePage} />
     </motion.div>
   );
 };

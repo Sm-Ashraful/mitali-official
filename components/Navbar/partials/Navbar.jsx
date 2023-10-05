@@ -83,12 +83,12 @@ const Nav = ({ className }) => {
         return (
           <li
             key={idx}
-            className=" flex  items-center gap-1 pt-5 md:pt-0"
+            className=" flex  items-center gap-1 pt-5 md:pt-0 navItem"
             onClick={() => handleToggle(menu)}
           >
             {mobileView ? <Icon icon={menu.icon} /> : null}
 
-            <Link href={menu.url || "#"} className="pl-2 md:pl-0">
+            <Link href={menu.url || "#"} className="pl-2 md:pl-0 ">
               {menu.title}
             </Link>
           </li>

@@ -353,3 +353,34 @@
   height: 1px;
   border-top: 2px solid #1fa2ed;
 }
+.shape {
+  display: inline-block;
+
+  border-radius: 10px 20px 30px 40px/30px;
+}
+.shape8 {
+  border-radius: 0 10px 20px;
+
+  display: inline-block;
+  border: 5px solid #ffd64a;
+}
+.navItem {
+  position: relative;
+  padding: 0 10px;
+}
+
+.navItem::after {
+  content: "";
+  position: absolute;
+  background-color: whitesmoke;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s;
+}
+
+.navItem:hover::after,
+.navItem:active::after {
+  width: 100%;
+}

@@ -4,6 +4,7 @@ import Footer from "../Footer";
 import Head from "next/head";
 
 import ArrangeMeeting from "../arrang-meeting";
+import Sidebar from "../Navbar/partials/Sidebar";
 
 const Layout = ({ children }) => {
   const [mobileView, setMobileView] = useState(false);
@@ -39,6 +40,7 @@ const Layout = ({ children }) => {
       <main className="relative min-h-screen max-w-[1992px] mx-auto">
         <ArrangeMeeting mobileView={mobileView} />
         <Navbar />
+        <Sidebar />
         {children}
       </main>
       <Footer />

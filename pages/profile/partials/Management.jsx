@@ -44,28 +44,28 @@ const Management = () => {
               challenges as opportunities for growth and transformation. Our
               journey is defined by resilience and continuous improvement
             </q>
-            <div className="order-0 md:order-1">
+            <div className="order-0 md:order-1 ">
               <h3 className="text-[26px] font-bold pt-3 text-end">
-                Mahide Rahman
+                Moshfiqur Rahman
               </h3>
               <p className="italic text-end">
-                Head of Operations & Managing Partner <br /> M/S Mitali
-                International Limited
+                Head of Sales & Managing Partner <br /> M/S Mitali International
+                Limited
               </p>
             </div>
           </div>
           <div className="order-0 md:order-1 min-w-[300px] h-[300px] bg-white rounded-full flex items-center justify-center overflow-hidden">
             <img
-              src="/Image/images (3).png"
+              src="/Image/musfiq2.png"
               alt=""
               className="max-w-full max-h-full"
             />
           </div>
         </div>
         <div className="flex flex-wrap border-y-2 border-blue-400 md:flex-nowrap justify-center gap-10 items-center py-5">
-          <div className="min-w-[300px] h-[300px] bg-white rounded-full flex items-center justify-center overflow-hidden">
+          <div className="min-w-[300px] h-[300px] bg-black bg-opacity-40 rounded-full flex items-center justify-center overflow-hidden">
             <img
-              src="/Image/images (3).png"
+              src="/Image/mahide.jpg"
               alt=""
               className="max-w-full max-h-full"
             />
@@ -79,13 +79,14 @@ const Management = () => {
               challenges as opportunities for growth and transformation. Our
               journey is defined by resilience and continuous improvement
             </q>
-            <div className="order-0 md:order-1 ">
+
+            <div className="order-0 md:order-1">
               <h3 className="text-[26px] font-bold pt-3 text-end">
-                Moshfiqur Rahman
+                Mahide Rahman
               </h3>
               <p className="italic text-end">
-                Head of Sales & Managing Partner <br /> M/S Mitali International
-                Limited
+                Head of Operations & Managing Partner <br /> M/S Mitali
+                International Limited
               </p>
             </div>
           </div>

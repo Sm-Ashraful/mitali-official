@@ -1,6 +1,6 @@
 export const initialState = {
   showModal: false,
-
+  isSidebarOpen: false,
   isDropdownMenuOpen: false,
 };
 const reducer = (state, action) => {
@@ -9,6 +9,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         showModal: action.item,
+      };
+    case "setSidebar":
+      return {
+        ...state,
+        isSidebarOpen: action.item,
       };
 
     case "setDropdownOpen":
