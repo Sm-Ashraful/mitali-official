@@ -19,7 +19,7 @@ const WhyChooseUs = () => {
         the first and the most compelling choice for companies seeking a contact
         center solution.
       </p>
-      <div className="grid md:grid-cols-2 px-2  md:px-16 2xl:px-20 w-full ">
+      <div className="grid lg:grid-cols-2 px-2  md:px-16 2xl:px-20 w-full ">
         <div>
           <img src="/Image/why_banner.png" alt="" />
         </div>
@@ -130,7 +130,7 @@ const WhyChooseUs = () => {
           </ul>
         </div>
       </div>
-      <p className="text-center font-Rubik font-semibold pt-8 md:pt-0">
+      <p className="text-center font-Rubik font-semibold pt-8 lg:pt-0 px-2  md:px-16 2xl:px-20">
         Join hands with us, and let&#39;s embark on a journey of digital
         transformation and growth, where your success is our ultimate goal.
       </p>

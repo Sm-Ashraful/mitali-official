@@ -77,7 +77,7 @@ const Nav = ({ className }) => {
 
   return (
     <ul
-      className={`relative font-Allerta text-white font-[500] 2xl:text-[26px] ${className} text-[25px] md:text-[16px] pl-5 md:pl-0 pt-10 md:pt-0`}
+      className={`relative font-Allerta text-white font-[500] 2xl:text-[26px] ${className} text-[25px] md:text-[16px] pl-5 md:pl-0 `}
     >
       {menuItem.map((menu, idx) => {
         return (

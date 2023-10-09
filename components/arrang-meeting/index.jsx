@@ -76,15 +76,15 @@ const ArrangeMeeting = ({ mobileView }) => {
     <>
       {showModal && (
         <Model mobileView={mobileView}>
-          <div className="flex h-full w-full bg-white text-black relative">
-            <div className="text-white w-[48%] h-full  p-5 bg-gradient-to-r from-[#0479ae]  to-[#045c94]">
+          <div className="flex flex-col md:flex-row h-full w-full bg-white text-black relative">
+            <div className="text-white w-full md:w-[48%] h-full  p-5 bg-gradient-to-r from-[#0479ae]  to-[#045c94]">
               <div className="border-b border-white pb-2">
                 <h2 className="text-[26px] font-bold text-center ">
                   Ms Mitali International Limited
                 </h2>
                 <p className="text-center font-semibold">Discus With Us</p>
               </div>
-              <div className="text-white   py-3">
+              <div className="text-white   py-3 hidden md:block">
                 <p className="font-bold">Meeting Details:</p>
                 <p className=" flex items-center gap-2">
                   <FaClock />:
@@ -125,7 +125,7 @@ const ArrangeMeeting = ({ mobileView }) => {
               <FaLongArrowAltLeft />
             </div>
 
-            <div className="w-[48%] pt-5 ">
+            <div className="w-full md:w-[48%] md:pt-5 ">
               {showCalendar && (
                 <div className="w-full h-full  p-5">
                   <div className="font-semibold text-[18px] pb-2">

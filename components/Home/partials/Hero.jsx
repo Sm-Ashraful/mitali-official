@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Typewriter from "typewriter-effect";
 import Branding from "./brand";
-import PopUp from "@/components/popup";
 
 const Hero = ({ formPopupOpen }) => {
   return (
     <div className="relative">
       <div
-        className="w-full h-[70vh] lg:h-[100vh] xl:h-[90vh] relative hero-clip-path"
+        className="w-full h-[580px]  xl:h-[600px] 2xl:h-[620px] relative hero-clip-path"
         style={{
           backgroundImage: 'url("/Image/yiying (2).png")',
           backgroundRepeat: "no-repeat",
@@ -36,13 +35,13 @@ const Hero = ({ formPopupOpen }) => {
             <p className="font-[800] font-Work uppercase text-[#0f1235] text-[15px] md:text-[18px]">
               Going Beyond the Future
             </p>
-            <h3 className=" md:text-[42px] font-bold font-Work">
+            <h3 className=" lg:text-[42px] font-bold font-Work">
               <span className="font-Work text-[50px] md:text-[60px] text-[#0f1235] font-[900] px-2 md:px-0">
                 Welcome to
               </span>{" "}
-              <span className="hidden md:inline">M/S Mitali International</span>
+              <span className="hidden lg:inline">M/S Mitali International</span>
             </h3>
-            <h4 className="md:hidden text-[30px] font-bold font-Work tracking-wide">
+            <h4 className="lg:hidden text-[30px] font-bold font-Work tracking-wide">
               M/S Mitali International
             </h4>
           </div>
@@ -65,7 +64,7 @@ const Hero = ({ formPopupOpen }) => {
               }}
             />
           </h1>
-          <h3 className="font-semibold text-center text-sm md:text-[22px] text-[#0f1235]">
+          <h3 className="max-w-[95%] font-semibold text-center text-sm md:text-[22px] text-[#0f1235]">
             We collaborate with businesses to optimize operations, sustain
             profitable growth, and accelerate into the digital age.
           </h3>

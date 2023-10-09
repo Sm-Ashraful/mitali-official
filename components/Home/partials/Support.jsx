@@ -2,9 +2,9 @@ import React from "react";
 
 const Support = () => {
   return (
-    <div className="w-full mt-20 py-10 h-auto bg-[#fafafa]">
-      <div className="px-2 md:px-16 flex flex-col md:flex-row justify-between">
-        <div className="mr-6 w-full md:w-3/5">
+    <div className="w-full  pt-16 pb-10 h-auto bg-[#fafafa]">
+      <div className="px-2 md:px-16 flex flex-col lg:flex-row justify-between">
+        <div className="mr-6 w-full lg:w-3/5">
           <div className="pb-5">
             <p className="text-slate-500 font-Rubik text-[18px]">Welcome to</p>
             <p className="text-[24px] md:text-[36px] font-bold">
@@ -31,7 +31,7 @@ const Support = () => {
             Know More
           </button>
         </div>
-        <div className="support-box w-full md:w-2/5 h-full ">
+        <div className="support-box w-full lg:w-2/5 h-full ">
           <img
             src="/Image/iStock-897528636-700-2.jpg"
             alt=""

@@ -10,8 +10,8 @@ const Values = () => {
         Our values at M/S Mitali International define our culture, guide our
         decisions, and shape our interactions. We are committed to:
       </p>
-      <div className="grid md:grid-cols-2 px-2  md:px-16 2xl:px-20 w-full ">
-        <div className="font-Rubik text-sm text-[#777] order-1 md:order-0">
+      <div className="grid lg:grid-cols-2 px-2  md:px-16 2xl:px-20 w-full ">
+        <div className="font-Rubik text-sm text-[#777] order-1 lg:order-0">
           <ul>
             <li>
               <p className="mt-3">
@@ -106,7 +106,7 @@ const Values = () => {
             </li>
           </ul>
         </div>
-        <div className="order-0 md:order-1">
+        <div className="order-0 lg:order-1">
           <img src="/Image/coreValues.png" alt="" />
         </div>
       </div>

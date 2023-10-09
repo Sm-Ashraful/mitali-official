@@ -107,7 +107,7 @@ const Service = () => {
   const visibleServiceCards = showAll ? serviceCards : serviceCards.slice(0, 6);
 
   return (
-    <div className="px-2 md:px-16 mt-20">
+    <div className="px-2 md:px-16 pt-16 pb-10">
       <h2 className="text-[38px] leading-9 text-[#464855] text-center font-[800] mb-[20px]">
         <p className="text-slate-500 font-Rubik text-[8px] md:text-[14px]">
           Building Trust, Building Tomorrow

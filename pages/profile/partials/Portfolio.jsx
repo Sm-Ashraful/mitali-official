@@ -3,8 +3,8 @@ import React from "react";
 const Portfolio = () => {
   return (
     <div className="relative w-full mt-10 bg-[#fafafa] py-5">
-      <div className="flex flex-wrap md:flex-nowrap gap-5 px-2  md:px-16 2xl:px-20 w-full ">
-        <div className="flex flex-col justify-between items-center  md:min-h-[280px] py-5 px-3 w-full md:w-1/4 bg-gradient-to-b from-yellow-400 to-yellow-700 ">
+      <div className="flex flex-wrap lg:flex-nowrap px-2 gap-[9px]  md:px-16 2xl:px-20 w-full ">
+        <div className="flex flex-col justify-between items-center  md:min-h-[280px] py-5 px-3 w-full lg:w-1/4 bg-gradient-to-b from-yellow-400 to-yellow-700 ">
           <div>
             <h3 className="text-[24px] md:text-[28px] font-bold font-Work text-center capitalize text-white">
               Explore your business with us
@@ -18,7 +18,7 @@ const Portfolio = () => {
             Contact Us Now
           </button>
         </div>
-        <div className="min-h-[280px] bg-black w-full md:w-[25%] py-5 px-3 bg-gradient-to-b from-[#0272A7] to-[#013953]">
+        <div className="min-h-[280px] bg-black w-full md:w-[calc((100%/3)-6px)] lg:w-[25%] py-5 px-3 bg-gradient-to-b from-[#0272A7] to-[#013953]">
           <h3 className="text-[22px] font-Work font-bold text-white pb-2">
             Web Development
           </h3>
@@ -192,7 +192,7 @@ const Portfolio = () => {
             </div>
           </div>
         </div>
-        <div className="min-h-[280px] bg-black w-full md:w-[25%] py-5 px-3 bg-gradient-to-b from-[#0272A7] to-[#013953]">
+        <div className="min-h-[280px] bg-black w-full md:w-[calc((100%/3)-6px)] lg:w-[25%] py-5 px-3 bg-gradient-to-b from-[#0272A7] to-[#013953]">
           <h3 className="text-[22px] font-Work font-bold text-white pb-2">
             Digital marketing
           </h3>
@@ -366,7 +366,7 @@ const Portfolio = () => {
             </div>
           </div>
         </div>
-        <div className="min-h-[280px] bg-black w-full md:w-[25%] py-5 px-3 bg-gradient-to-b from-[#0272A7] to-[#013953]">
+        <div className="min-h-[280px] bg-black w-full md:w-[calc((100%/3)-6px)] lg:w-[25%] py-5 px-3 bg-gradient-to-b from-[#0272A7] to-[#013953]">
           <h3 className="text-[22px] font-Work font-bold text-white pb-2">
             Call center services
           </h3>

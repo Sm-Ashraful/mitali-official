@@ -6,6 +6,7 @@ import Nav from "./Navbar";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useStateValue } from "@/context/StateProvider";
+import Image from "next/image";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -84,17 +85,22 @@ const Navigation = ({ setIsSidebarOpen, isHomePage }) => {
 
   return (
     <div
-      className={`w-full flex justify-between items-center border-b px-2  md:px-16 2xl:px-20 py-3  z-50 ${
+      className={`w-full flex justify-between items-center border-b px-2 md:px-10 lg:px-16 2xl:px-20 py-3  z-50 ${
         !isHomePage
           ? `bg-transparent fixed top-0 left-0 ${onav}`
           : `${nav} bg-white`
       }`}
     >
-      <Link href="/" className={`w-[40%] mx-auto md:w-[14%] `}>
-        <img
-          src={!isHomePage ? "/Image/logo1.jpg" : "/Image/logo png.png"}
-          alt="logo.jpg"
+      <Link href="/" className="w-[40%] mx-auto md:w-[14%]">
+        <Image
           className="w-full h-full"
+          src={!isHomePage ? "/Image/logo png.png" : "/Image/logo png.png"}
+          alt="logo.jpg"
+          width={300} // Set the width of the image
+          height={200} // Set the height of the image
+          layout="responsive" // Set the layout to responsive
+          objectFit="contain" // Set the object fit mode
+          sizes="(max-width: 640px) 100vw, 50vw" // Specify different sizes for different viewport widths
         />
       </Link>
 
@@ -124,17 +130,17 @@ const Navigation = ({ setIsSidebarOpen, isHomePage }) => {
           />
         </button>
       </div>
-      <nav
-        className={`hidden md:block ${
-          isHomePage
-            ? "bg-gradient-to-b from-[#0272A7] to-[#013953]"
-            : "bg-gradient-to-b from-yellow-400 to-yellow-700"
-        } flex-1 mx-[5rem] 2xl:mx-[9rem] rounded-md py-3`}
-      >
-        <Nav className="flex justify-evenly" />
+      <nav className={`hidden  flex-1  lg:px-10 md:flex justify-end`}>
+        <Nav
+          className={`w-[90%] flex justify-evenly items-center rounded-md md:py-2 lg:py-3 ${
+            isHomePage
+              ? "bg-gradient-to-b from-[#0272A7] to-[#013953]"
+              : "bg-gradient-to-b from-yellow-400 to-yellow-700"
+          }`}
+        />
       </nav>
       <div>
-        <ul className="hidden md:flex gap-2 text-[#0479ae]">
+        <ul className="hidden lg:flex gap-2 text-[#0479ae]">
           <li>
             <div class="hexagon-wrapper">
               <div class="hexagon">

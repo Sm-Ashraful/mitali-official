@@ -3,8 +3,8 @@ import Review from "./Review";
 
 const Partner = () => {
   return (
-    <div className="mt-20">
-      <p className="text-[16px] font-[800] text-center pb-3 text-gray-400">
+    <div className="pt-16 pb-10">
+      <p className="text-[16px] font-[800] text-center pb-3 text-[#464855]">
         TRUSTED AT SCALE
       </p>
       <div className="flex w-full justify-center items-center gap-10 ">
