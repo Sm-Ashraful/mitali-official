@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { useStateValue } from "@/context/StateProvider";
 
 const Sidebar = () => {
-  const [sidebarTop, setSidebarTop] = useState("top-[90px]");
+  const [sidebarTop, setSidebarTop] = useState("top-[120px]");
   const [{ isSidebarOpen }, dispatch] = useStateValue();
   const router = useRouter();
   useEffect(() => {
@@ -26,10 +26,10 @@ const Sidebar = () => {
       const currentScrollY = window.scrollY;
       if (window.innerWidth < 768) {
         if (router.pathname === "/" && currentScrollY < 500) {
-          setSidebarTop("top-[130px]");
+          setSidebarTop("top-[165px]");
         } else {
           console.log("done");
-          setSidebarTop("top-[90px]");
+          setSidebarTop("top-[120px]");
         }
       }
     };
@@ -47,7 +47,7 @@ const Sidebar = () => {
     <>
       {isSidebarOpen ? (
         <div
-          className={`flex flex-col justify-between fixed ${sidebarTop}  left-0 bg-gradient-to-b from-[#0272A7] to-[#013953] w-full h-[600px] z-50`}
+          className={`flex flex-col justify-between fixed ${sidebarTop}  left-0 bg-gradient-to-b from-[#0272A7] to-[#013953] w-full h-[600px] z-50 pt-10 pb-5`}
         >
           <Nav />
           <div className="px-2 flex justify-center">

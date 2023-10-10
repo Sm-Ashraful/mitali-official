@@ -100,7 +100,7 @@ const Navigation = ({ setIsSidebarOpen, isHomePage }) => {
           height={200} // Set the height of the image
           layout="responsive" // Set the layout to responsive
           objectFit="contain" // Set the object fit mode
-          sizes="(max-width: 640px) 100vw, 50vw" // Specify different sizes for different viewport widths
+          sizes="(min-width: 2100px) 256px, (min-width: 780px) 12.15vw, calc(40vw - 6px)" // Specify different sizes for different viewport widths
         />
       </Link>
 
