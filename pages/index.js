@@ -9,11 +9,7 @@ import { useEffect, useState } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [popupOpen, setPopupOpen] = useState();
   const [mobileView, setMobileView] = useState(false);
-  useEffect(() => {
-    setPopupOpen(true);
-  }, []);
 
   useEffect(() => {
     // Function to check if the viewport width is less than a certain threshold (e.g., 768 pixels for typical mobile devices)
@@ -34,17 +30,10 @@ export default function Home() {
     };
   }, []);
 
-  const closePopup = () => {
-    setPopupOpen(false);
-  };
   return (
     <>
       <Homepage />
-      <PopUpCelebrate
-        isOpen={popupOpen}
-        onClose={closePopup}
-        mobileView={mobileView}
-      />
+      <PopUpCelebrate mobileView={mobileView} />
     </>
   );
 }

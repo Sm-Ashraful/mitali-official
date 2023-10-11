@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Typewriter from "typewriter-effect";
 import Branding from "./brand";
+import homeBg from "../../../Assets/Home/yiying (2).png";
+import Image from "next/image";
 
 const Hero = ({ formPopupOpen }) => {
   return (
     <div className="relative">
-      <div
-        className="w-full h-[580px]  xl:h-[600px] 2xl:h-[620px] relative hero-clip-path"
-        style={{
-          backgroundImage: 'url("/Image/yiying (2).png")',
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center", // Set an appropriate height for the hero section
-          backgroundBlendMode: "multiply",
-          backgroundFilter: "blur(2px)",
-          zIndex: "0",
-        }}
-      >
+      <div className="w-full h-[580px]  xl:h-[600px] 2xl:h-[620px] relative hero-clip-path">
+        <Image
+          src="/Image/yiying (2).png"
+          alt="Background Image"
+          layout="fill" // Fill the parent container
+          objectFit="cover" // Maintain aspect ratio and cover the container
+          objectPosition="center" // Center the image
+          priority // Preload the image for better performance
+        />
         <div
           style={{
             position: "absolute",
@@ -26,7 +25,7 @@ const Hero = ({ formPopupOpen }) => {
             bottom: 0,
             backgroundImage:
               "linear-gradient(to right, rgba(248, 150, 64, 0.1) 0%, rgba(4, 92, 148, .3) 100%)",
-            zIndex: "-1",
+            zIndex: "0",
           }}
         />
         <div class="bg-clip-border custom-clip-path w-full h-12  bg-gradient-to-r from-[#045c94]  to-[#0479ae]"></div>
@@ -64,19 +63,19 @@ const Hero = ({ formPopupOpen }) => {
               }}
             />
           </h1>
-          <h3 className="max-w-[95%] font-semibold text-center text-sm md:text-[22px] text-[#0f1235]">
+          <h3 className="w-[95%] font-semibold text-center text-sm md:text-base text-[#0f1235] z-0">
             We collaborate with businesses to optimize operations, sustain
             profitable growth, and accelerate into the digital age.
           </h3>
 
-          <button onClick={formPopupOpen}>
+          <button className="" onClick={formPopupOpen}>
             <a
               href="#_"
-              class="z-20 relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-white hover:text-black bg-[#0f1235]  rounded-lg group meeting-clip-path"
+              className="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-white hover:text-black bg-[#0f1235]  rounded-lg group meeting-clip-path"
             >
               <span class="absolute w-0 h-0 transition-all duration-500 ease-out rounded-full bg-[#F89640]  group-hover:w-56 group-hover:h-56"></span>
               <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-[#045c94]"></span>
-              <span class="relative">Request For Enquire</span>
+              <span class="relative z-10">Request For Enquire</span>
             </a>
           </button>
         </div>

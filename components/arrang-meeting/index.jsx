@@ -20,18 +20,27 @@ const ArrangeMeeting = ({ mobileView }) => {
   const currentDate = dayjs();
   const [today, setToday] = useState(currentDate);
   const [selectDate, setSelectDate] = useState(today);
+  const [selectedDate, setSelectedDate] = useState(null);
   const [active, setActive] = useState(false);
   const [{ showModal }, dispatch] = useStateValue();
-  const [value, onChange] = useState(new Date());
   const [selectTime, setSelectTime] = useState(null);
   const [selectedTimeZone, setSelectedTimeZone] = useState({
     label: "Asia/Dhaka",
     value: "Asia/Dhaka",
   });
+  const [formData, setFormData] = useState({
+    fname: "",
+    phone: "",
+    email: "",
+    topic: "",
+    guestEmail: "",
+  });
   /// state changing code
   const [showCalendar, setShowCalendar] = useState(true);
   const [showSelectTime, setShowSelectTime] = useState(false);
   const [showMeetingForm, setShowMeetingForm] = useState(false);
+
+  const formattedDate = selectDate.format("dddd, D MMMM YYYY");
 
   const router = useRouter();
 
@@ -43,8 +52,27 @@ const ArrangeMeeting = ({ mobileView }) => {
       setShowSelectTime(false);
       setShowMeetingForm(true);
     } else if (showMeetingForm) {
-      // Handle what should happen when the form is complete
-      // For example, submit the form data or close the popup
+      const meetingData = {
+        selectedDate: formattedDate,
+        selectedTime: selectTime,
+        selectedTimeZone: selectedTimeZone.value,
+        fname: formData.fname,
+        phone: formData.phone,
+        email: formData.email,
+        topic: formData.topic,
+        guestEmail: formData.guestEmail,
+      };
+      cancelArrangeMeeting();
+      setFormData({
+        fname: "",
+        phone: "",
+        email: "",
+        topic: "",
+        guestEmail: "",
+      });
+      setSelectedDate(null);
+      setSelectTime(null);
+      dispatch({ type: "setMeetingInfo", item: meetingData });
     }
   };
 
@@ -72,52 +100,35 @@ const ArrangeMeeting = ({ mobileView }) => {
   }, [showModal]);
   //end of state change
 
+  const handleSelectDate = (date) => {
+    setSelectDate(date);
+    setActive(true);
+    setSelectedDate(date);
+  };
+
   return (
     <>
       {showModal && (
         <Model mobileView={mobileView}>
           <div className="flex flex-col md:flex-row h-full w-full bg-white text-black relative">
-            <div className="text-white w-full md:w-[48%] h-full  p-5 bg-gradient-to-r from-[#0479ae]  to-[#045c94]">
-              <div className="border-b border-white pb-2">
+            <div className="relative flex items-center justify-center text-white w-full md:w-[48%] md:h-full  p-5 bg-gradient-to-r from-[#0479ae]  to-[#045c94]">
+              <div className=" pb-10 md:pb-2">
                 <h2 className="text-[26px] font-bold text-center ">
                   Ms Mitali International Limited
                 </h2>
-                <p className="text-center font-semibold">Discus With Us</p>
-              </div>
-              <div className="text-white   py-3 hidden md:block">
-                <p className="font-bold">Meeting Details:</p>
-                <p className=" flex items-center gap-2">
-                  <FaClock />:
-                  <span className="text-yellow-400 ">30 minutes</span>
+                <p className="text-center font-semibold">
+                  Discus With Us Via Google Meet
                 </p>
-                <p className=" flex items-center gap-2">
-                  <SiGooglemeet />:
-                  <span className=" text-yellow-400">Google Meet</span>
-                </p>
-
-                <p className="">
-                  Date:
-                  <span className="text-yellow-400 pl-2">
-                    {value.toDateString()}
-                  </span>
-                </p>
-
-                <p className="">
-                  Meeting Time:
-                  <span className="text-yellow-400 pl-2">{selectTime} </span>
-                </p>
-                <p className="">
-                  Timezone:
-                  <span className="text-yellow-400 pl-2">
-                    {selectedTimeZone.value}
-                  </span>
+                <p className="text-[24px] text-yellow-400 font-bold flex justify-center ">
+                  <SiGooglemeet />
                 </p>
               </div>
-              <p className="text-[10px] absolute left-5 bottom-5 text-gray-200">
+
+              <p className="text-[10px] absolute left-5 bottom-5 border-b border-white text-gray-200">
                 Note: Web conferencing details provided upon confirmation.
               </p>
             </div>
-            <div className="w-[1%] h-full bg-yellow-400"></div>
+            <div className="hidden md:block w-[1%] h-full bg-yellow-400"></div>
             <div
               onClick={handleMeetingBackward}
               className="absolute right-3 top-3 cursor-pointer font-extrabold border p-1 text-[#045c94] border-red-500"
@@ -125,11 +136,16 @@ const ArrangeMeeting = ({ mobileView }) => {
               <FaLongArrowAltLeft />
             </div>
 
-            <div className="w-full md:w-[48%] md:pt-5 ">
+            <div className="w-full md:w-[48%] p-5">
               {showCalendar && (
                 <div className="w-full h-full  p-5">
                   <div className="font-semibold text-[18px] pb-2">
-                    <p>Select A Date:</p>
+                    <p className="pb-3">
+                      Select A Date:
+                      <span className="text-sm text-[#045c94] pl-5 font-semibold">
+                        {formattedDate}
+                      </span>
+                    </p>
                     <div className="">
                       <div className=" px-5 flex justify-between items-center bg-gradient-to-r from-[#0A223A]  via-[#214265] to-[#0A223A]">
                         <span
@@ -181,11 +197,16 @@ const ArrangeMeeting = ({ mobileView }) => {
                                       : today
                                       ? `cursor-pointer  ${
                                           active
-                                            ? ""
+                                            ? "border"
                                             : "border rounded-md bg-gradient-to-r from-[#DFBF68] via-[#BFA04B] to-[#DFBF68]"
                                         } text-[#0A223A]`
-                                      : "text-[#0A223A] cursor-pointer"
-                                  } hover:border rounded-sm hover:bg-gradient-to-r  from-[#DFBF68] via-[#BFA04B] to-[#DFBF68]`}
+                                      : "text-[#0A223A] cursor-pointer "
+                                  } hover:border rounded-sm hover:bg-gradient-to-r  from-[#DFBF68] via-[#BFA04B] to-[#DFBF68] ${
+                                    // Check if the date is selected
+                                    dayjs(date).isSame(selectedDate, "day")
+                                      ? "bg-gradient-to-r from-[#DFBF68] via-[#BFA04B] to-[#DFBF68]" // Apply the CSS class for selected date
+                                      : ""
+                                  }`}
                                   onClick={
                                     dayjs(date).isBefore(dayjs(), "day")
                                       ? null
@@ -212,7 +233,7 @@ const ArrangeMeeting = ({ mobileView }) => {
               )}
 
               {showSelectTime && (
-                <div className="w-full h-full  p-5">
+                <div className="w-full h-full  pb-[75px] md:pb-5">
                   <SelectTime
                     setSelectTime={setSelectTime}
                     selectedTimeZone={selectedTimeZone}
@@ -222,24 +243,24 @@ const ArrangeMeeting = ({ mobileView }) => {
               )}
 
               {showMeetingForm && (
-                <div className="w-full h-full  p-5">
-                  <MeetingForm />
+                <div className="w-full h-full pb-[75px] md:pb-5">
+                  <MeetingForm formData={formData} setFormData={setFormData} />
                 </div>
               )}
             </div>
 
             <div className="absolute right-10 bottom-5 flex gap-5">
               <button
-                className="rounded-xl bg-[#052149] px-6 py-2 text-sm font-medium text-white transition duration-200 hover:bg-red-600 active:bg-red-700"
+                className="rounded-xl bg-red-500  px-6 py-2 text-sm font-medium text-white transition duration-200 hover:bg-red-800 active:bg-red-800"
                 onClick={cancelArrangeMeeting}
               >
                 Cancel
               </button>
               <button
-                className="rounded-xl bg-[#045c94] px-6 py-2 text-sm font-medium text-white transition duration-200 hover:bg-blue-600 active:bg-blue-700 dark:bg-blue-400 dark:text-white dark:hover:bg-blue-300 dark:active:bg-blue-200"
+                className="rounded-xl bg-[#052149] px-6 py-2 text-sm font-medium text-white transition duration-200 hover:bg-blue-600 active:bg-blue-700 dark:bg-blue-400 dark:text-white dark:hover:bg-blue-300 dark:active:bg-blue-200"
                 onClick={handleNextButtonClick}
               >
-                Next
+                Next&rarr;
               </button>
             </div>
           </div>

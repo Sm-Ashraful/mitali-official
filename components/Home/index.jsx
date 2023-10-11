@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import Hero from "./partials/Hero";
-import Branding from "./partials/brand";
 import Service from "./partials/Service";
 import Partner from "./partials/Partner";
 import Support from "./partials/Support";
 import HowService from "./partials/HowService";
 import Gallery from "./partials/Gelery";
 import PopUp from "../popup";
-import ArrangeAMeeting from "../arrang-meeting";
 
 const Homepage = () => {
   const [openPopup, setOpenPopup] = useState(false);

@@ -37,11 +37,9 @@ const Model = (props) => {
     };
 
     document.addEventListener("mousedown", handle);
-    window.addEventListener("scroll", handle);
 
     return () => {
       document.removeEventListener("mousedown", handle);
-      document.removeEventListener("scroll", handle);
     };
   }, [showModal, currentArrangeRef]);
 
@@ -61,7 +59,7 @@ const Model = (props) => {
   return (
     <>
       <div className="absolute top-0 pointer-events-none w-full h-screen md:h-full">
-        <div className="absolute inset-0 backdrop-filter backdrop-blur-lg bg-opacity-70 z-50"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-70 z-50"></div>
       </div>
       <div
         ref={arrangeRef}
@@ -69,7 +67,7 @@ const Model = (props) => {
       >
         <div
           ref={currentArrangeRef}
-          className="relative w-full h-[60vh] md:h-[390px]  md:w-[800px]  mx-auto max-w-3xl "
+          className="relative w-full md:h-[390px]  md:w-[800px]  mx-auto max-w-3xl "
         >
           {props.children}
         </div>

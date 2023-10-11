@@ -1,6 +1,40 @@
-import React from "react";
+import { useStateValue } from "@/context/StateProvider";
+import React, { useEffect, useState } from "react";
 
 const ContactForm = ({ formTitle, type }) => {
+  const [{ contactInfo }, dispatch] = useStateValue();
+  const [input, setInput] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    category: "",
+    company: "",
+    message: "",
+  });
+  const onChangeHandler = (e) => {
+    const { name, value } = e.target;
+
+    setInput((prevInput) => ({
+      ...prevInput,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch({ type: "setContactInfo", item: input });
+    setInput({
+      name: "",
+      phone: "",
+      email: "",
+      category: "",
+      company: "",
+      message: "",
+    });
+  };
+  useEffect(() => {
+    console.log("contactInfo: ", contactInfo);
+  }, [contactInfo]);
   return (
     <div>
       <h2
@@ -10,7 +44,7 @@ const ContactForm = ({ formTitle, type }) => {
       >
         {formTitle || "Enquiry Form"}
       </h2>
-      <form className="w-full max-w-lg pt-5">
+      <form onSubmit={handleSubmit} className="w-full max-w-lg pt-5">
         <div className="flex flex-wrap -mx-3">
           <div className="w-full md:w-1/2 px-3 md:mb-0">
             <label
@@ -21,10 +55,13 @@ const ContactForm = ({ formTitle, type }) => {
               <span className="text-red-500">*</span>
             </label>
             <input
+              name="name"
+              value={input.name}
               className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-first-name"
               type="text"
               placeholder="Jane"
+              onChange={onChangeHandler}
             />
           </div>
           <div className="w-full md:w-1/2 px-3">
@@ -35,10 +72,13 @@ const ContactForm = ({ formTitle, type }) => {
               Phone number
             </label>
             <input
+              name="phone"
+              value={input.phone}
               className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-last-name"
               type="phone"
               placeholder="0123 4567 89"
+              onChange={onChangeHandler}
             />
           </div>
         </div>
@@ -52,10 +92,13 @@ const ContactForm = ({ formTitle, type }) => {
               <span className="text-red-500">*</span>
             </label>
             <input
+              name="email"
+              value={input.email}
               className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-password"
               type="email"
               placeholder="example@gmail.com"
+              onChange={onChangeHandler}
             />
           </div>
         </div>
@@ -69,8 +112,11 @@ const ContactForm = ({ formTitle, type }) => {
             </label>
             <div className="relative">
               <select
+                name="category"
+                value={input.category}
                 className="block appearance-none w-full  border border-black text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-state"
+                onChange={onChangeHandler}
               >
                 <option>Select Category</option>
                 <option>B2B Telemarketing</option>
@@ -99,10 +145,13 @@ const ContactForm = ({ formTitle, type }) => {
               Company/Organization
             </label>
             <input
+              name="company"
+              value={input.company}
               className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-zip"
               type="text"
               placeholder="90210"
+              onChange={onChangeHandler}
             />
           </div>
         </div>
@@ -115,10 +164,12 @@ const ContactForm = ({ formTitle, type }) => {
             <span className="text-red-500">*</span>
           </label>
           <textarea
+            name="message"
+            value={input.message}
             rows="4"
             className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             label="Message"
-            required
+            onChange={onChangeHandler}
           />
         </div>
         <div class={`md:flex md:items-center justify-end `}>
@@ -126,7 +177,7 @@ const ContactForm = ({ formTitle, type }) => {
             class={`${
               type === "help" ? "w-full" : ""
             } shadow   bg-[#0f1235] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded`}
-            type="button"
+            type="submit"
           >
             Submit
           </button>
