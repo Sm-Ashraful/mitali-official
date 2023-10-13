@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Support = () => {
@@ -28,7 +29,7 @@ const Support = () => {
             business growth and success.
           </p>
           <button className="mt-5 rounded-xl bg-[#052149] px-5 py-3 text-base font-medium text-white transition duration-200 hover:bg-blue-600 active:bg-blue-700 dark:bg-blue-400 dark:text-white dark:hover:bg-blue-300 dark:active:bg-blue-200">
-            Know More
+            <Link href={"/profile"}>Know More</Link>
           </button>
         </div>
         <div className="support-box w-full lg:w-2/5 h-full ">

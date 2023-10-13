@@ -6,21 +6,22 @@ import Support from "./partials/Support";
 import HowService from "./partials/HowService";
 import Gallery from "./partials/Gelery";
 import PopUp from "../popup";
+import { useStateValue } from "@/context/StateProvider";
 
 const Homepage = () => {
-  const [openPopup, setOpenPopup] = useState(false);
+  const [{ isContactFormOpen }, dispatch] = useStateValue();
 
   const formPopupOpen = (e) => {
-    setOpenPopup(true);
+    dispatch({ type: "setContactInfo", item: true });
   };
   const closePopup = (e) => {
-    setOpenPopup(false);
+    dispatch({ type: "setContactInfo", item: false });
   };
 
   return (
     <div className="">
       <Hero formPopupOpen={formPopupOpen} />
-      <PopUp isOpen={openPopup} onClose={closePopup} />
+      <PopUp isOpen={isContactFormOpen} onClose={closePopup} />
 
       <Support />
       <Service />

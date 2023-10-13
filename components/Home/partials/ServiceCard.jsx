@@ -1,10 +1,14 @@
 import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
 const ServiceCard = ({ title, des1, des2, des3, icon }) => {
   return (
-    <div className="w-full p-5 border border-gray-300 rounded-sm cursor-pointer">
+    <Link
+      href="/service"
+      className="w-full p-5 border border-gray-300 rounded-sm cursor-pointer"
+    >
       <div
         className="flex justify-between items-center font-Allerta text-[#0479ae] pb-5"
         style={{ fontSize: "calc(18rem / 16)" }}
@@ -20,7 +24,7 @@ const ServiceCard = ({ title, des1, des2, des3, icon }) => {
         <li>{des2}</li>
         <li>{des3}</li>
       </ul>
-    </div>
+    </Link>
   );
 };
 

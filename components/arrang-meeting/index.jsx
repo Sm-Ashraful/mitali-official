@@ -2,18 +2,19 @@ import React from "react";
 import Model from "../Models";
 
 import { SiGooglemeet } from "react-icons/si";
-import { FaClock, FaLongArrowAltLeft } from "react-icons/fa";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import SelectTime from "./partials/SelectTime";
 import MeetingForm from "./partials/MeetingForm";
-import Calender from "../Calender";
-import { BsArrowLeft } from "react-icons/bs";
 import dayjs from "dayjs";
 import { generator, months } from "@/context/calender";
 import cn from "@/context/ch";
 
+import Swal from "sweetalert2";
+
 import { useStateValue } from "@/context/StateProvider";
 import { useRouter } from "next/router";
+import { axiosInstance } from "@/utils/axios";
 
 const ArrangeMeeting = ({ mobileView }) => {
   const days = ["S", "M", "T", "W", "T", "F", "S"];
@@ -44,7 +45,7 @@ const ArrangeMeeting = ({ mobileView }) => {
 
   const router = useRouter();
 
-  const handleNextButtonClick = () => {
+  const handleNextButtonClick = async () => {
     if (showCalendar) {
       setShowCalendar(false);
       setShowSelectTime(true);
@@ -52,27 +53,38 @@ const ArrangeMeeting = ({ mobileView }) => {
       setShowSelectTime(false);
       setShowMeetingForm(true);
     } else if (showMeetingForm) {
-      const meetingData = {
-        selectedDate: formattedDate,
-        selectedTime: selectTime,
-        selectedTimeZone: selectedTimeZone.value,
-        fname: formData.fname,
-        phone: formData.phone,
-        email: formData.email,
-        topic: formData.topic,
-        guestEmail: formData.guestEmail,
-      };
-      cancelArrangeMeeting();
-      setFormData({
-        fname: "",
-        phone: "",
-        email: "",
-        topic: "",
-        guestEmail: "",
-      });
-      setSelectedDate(null);
-      setSelectTime(null);
-      dispatch({ type: "setMeetingInfo", item: meetingData });
+      try {
+        const meetingData = {
+          date: formattedDate,
+          time: selectTime,
+          timeZone: selectedTimeZone.value,
+          fname: formData.fname,
+          phone: formData.phone,
+          email: formData.email,
+          topic: formData.topic,
+          guestEmail: formData.guestEmail,
+        };
+
+        setFormData({
+          fname: "",
+          phone: "",
+          email: "",
+          topic: "",
+          guestEmail: "",
+        });
+        setSelectedDate(null);
+        setSelectTime(null);
+        const res = await axiosInstance.post("/meet", meetingData);
+        if (res.status === 201) {
+          Swal.fire({
+            title: "Success",
+            text: res.data.message,
+            icon: "success",
+          });
+        }
+        cancelArrangeMeeting();
+        setShowCalendar(true);
+      } catch (error) {}
     }
   };
 

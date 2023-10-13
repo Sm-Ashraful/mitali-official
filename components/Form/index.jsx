@@ -1,5 +1,8 @@
 import { useStateValue } from "@/context/StateProvider";
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+
+import { axiosInstance } from "@/utils/axios";
 
 const ContactForm = ({ formTitle, type }) => {
   const [{ contactInfo }, dispatch] = useStateValue();
@@ -20,21 +23,38 @@ const ContactForm = ({ formTitle, type }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({ type: "setContactInfo", item: input });
-    setInput({
-      name: "",
-      phone: "",
-      email: "",
-      category: "",
-      company: "",
-      message: "",
-    });
+    try {
+      const res = await axiosInstance.post("/form", input);
+      if (res.status === 201) {
+        Swal.fire({
+          title: "Success",
+          text: res.data.message,
+          icon: "success",
+        });
+      } else {
+        Swal.fire({
+          title: "Error",
+          text: res.data.message,
+          icon: "error",
+        });
+      }
+      dispatch({ type: "setContactInfo", item: false });
+      console.log("request.status", res);
+      setInput({
+        name: "",
+        phone: "",
+        email: "",
+        category: "",
+        company: "",
+        message: "",
+      });
+    } catch (error) {
+      console.log(Error);
+    }
   };
-  useEffect(() => {
-    console.log("contactInfo: ", contactInfo);
-  }, [contactInfo]);
+
   return (
     <div>
       <h2
@@ -106,7 +126,7 @@ const ContactForm = ({ formTitle, type }) => {
           <div className="w-full md:w-1/2 px-3 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-state"
+              for="category"
             >
               Choose Category
             </label>
@@ -115,7 +135,7 @@ const ContactForm = ({ formTitle, type }) => {
                 name="category"
                 value={input.category}
                 className="block appearance-none w-full  border border-black text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-state"
+                id="category"
                 onChange={onChangeHandler}
               >
                 <option>Select Category</option>
@@ -125,6 +145,7 @@ const ContactForm = ({ formTitle, type }) => {
                 <option>Graphics Design</option>
                 <option>E-commerce and Retails</option>
                 <option>Customer support</option>
+                <option>support</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg
