@@ -4,13 +4,16 @@ import Swal from "sweetalert2";
 
 import { axiosInstance } from "@/utils/axios";
 import Backdrop from "../Backdrop";
+import axios from "axios";
 
-const ApplyForm = ({ isOpen, onClose }) => {
+const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
   //   const [{ contactInfo }, dispatch] = useStateValue();
   const [input, setInput] = useState({
+    jobTitle: jobTitle,
     name: "",
     phone: "",
     email: "",
+    cv: null,
   });
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -20,46 +23,50 @@ const ApplyForm = ({ isOpen, onClose }) => {
       [name]: value,
     }));
   };
+  const handleFileChange = (e) => {
+    const cvFile = e.target.files[0];
+    setInput((prevInput) => ({
+      ...prevInput,
+      cv: cvFile,
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const selectedFile = e.target.files;
-    if (selectedFile) {
-      // Handle the selected file here
-      console.log("Selected file:", selectedFile);
+    console.log("Input file: ", input);
 
-      // You can save it to state or do further processing
-      // For example, if you're using React and have a state 'input':
-      // setInput({ ...input, cv: selectedFile });
+    try {
+      // Send the formData to the server
+      const res = await axiosInstance.post("/submit", input, {
+        headers: {
+          "Content-Type": "multipart/form-data", // Required for sending files
+        },
+      });
+
+      if (res.status === 201) {
+        Swal.fire({
+          title: "Success",
+          text: res.data.message,
+          icon: "success",
+        });
+      } else {
+        Swal.fire({
+          title: "Error",
+          text: res.data.message,
+          icon: "error",
+        });
+      }
+      setInput({
+        jobTitle: "",
+        name: "",
+        phone: "",
+        email: "",
+        cv: null,
+      });
+      onClose();
+    } catch (error) {
+      console.error("Error:", error);
     }
-    // try {
-    //   const res = await axiosInstance.post("/form", input);
-    //   if (res.status === 201) {
-    //     Swal.fire({
-    //       title: "Success",
-    //       text: res.data.message,
-    //       icon: "success",
-    //     });
-    //   } else {
-    //     Swal.fire({
-    //       title: "Error",
-    //       text: res.data.message,
-    //       icon: "error",
-    //     });
-    //   }
-    //   dispatch({ type: "setContactInfo", item: false });
-    console.log("request.status", input);
-    //   setInput({
-    //     name: "",
-    //     phone: "",
-    //     email: "",
-    //     category: "",
-    //     company: "",
-    //     message: "",
-    //   });
-    // } catch (error) {
-    //   console.log(Error);
-    // }
   };
 
   return (
@@ -75,7 +82,16 @@ const ApplyForm = ({ isOpen, onClose }) => {
               >
                 Apply Form
               </h2>
-              <form onSubmit={handleSubmit} className="w-full max-w-lg pt-5">
+              <p className="py-2  ">
+                <span className="uppercase tracking-wide text-gray-700 text-sm font-bold">
+                  Job Title:
+                </span>
+                <span className="text-gray-700 text-sm font-semibold">
+                  {" "}
+                  {jobTitle}
+                </span>
+              </p>
+              <form onSubmit={handleSubmit} className="w-full max-w-lg ">
                 <div className="flex flex-wrap -mx-3">
                   <div className="w-full md:w-1/2 px-3 md:mb-0">
                     <label
@@ -144,12 +160,11 @@ const ApplyForm = ({ isOpen, onClose }) => {
                   </label>
                   <input
                     name="cv"
-                    // value={input.cv}
                     className="appearance-none block w-full text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-password"
                     type="file"
                     accept=".pdf, .doc, .docx"
-                    onChange={onChangeHandler}
+                    onChange={handleFileChange}
                   />
                 </div>
                 <div class={`md:flex md:items-center justify-end `}>

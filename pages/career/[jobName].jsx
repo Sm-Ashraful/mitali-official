@@ -6,10 +6,27 @@ import ApplyForm from "@/components/applyForm";
 const JobDetails = () => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+
+  if (!router.isReady) {
+    // Router is not ready yet, you can show a loading indicator here
+    return (
+      <div className="h-screen w-full flex items-center justify-center text-[22px] md:text-[32px] ">
+        Loading...
+      </div>
+    );
+  }
+
   const targetJobName = router.query.jobName;
+  if (!targetJobName) {
+    // Handle the case where jobName is not available (e.g., display an error message)
+    return <div>Job not found</div>;
+  }
   // Use the 'find' method to find the job with the matching 'jobName'
   const matchingJob = JobInfo.find((job) => job.jobName === targetJobName);
-
+  if (!matchingJob) {
+    // Handle the case where no matching job is found (e.g., display an error message)
+    return <div>Job not found</div>;
+  }
   const onClose = () => {
     setIsOpen(false);
   };
@@ -125,7 +142,11 @@ const JobDetails = () => {
       >
         Apply Now
       </button>
-      <ApplyForm isOpen={isOpen} onClose={onClose} />
+      <ApplyForm
+        isOpen={isOpen}
+        onClose={onClose}
+        jobTitle={matchingJob.jobName}
+      />
     </div>
   );
 };
