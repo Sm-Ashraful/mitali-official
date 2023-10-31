@@ -6,6 +6,12 @@ import Head from "next/head";
 import ArrangeMeeting from "../arrang-meeting";
 import Sidebar from "../Navbar/partials/Sidebar";
 
+import { Roboto } from "next/font/google";
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin"],
+});
+
 const Layout = ({ children }) => {
   const [mobileView, setMobileView] = useState(false);
   useLayoutEffect(() => {
@@ -37,7 +43,9 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/honeyhut logo.png" />
       </Head>
-      <main className="relative min-h-screen max-w-[1992px] mx-auto">
+      <main
+        className={`relative min-h-screen max-w-[1992px] mx-auto ${roboto.className}`}
+      >
         <ArrangeMeeting mobileView={mobileView} />
         <Navbar />
         <Sidebar />
