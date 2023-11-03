@@ -28,7 +28,7 @@ const Jobs = ({ data }) => {
                   No of Vacancy: {job.vacancy}
                 </p>
                 <p className="font-semibold font-Work">
-                  Location: {job.location}
+                  Location: Uttara(west), Dhaka
                 </p>
                 {job.deadline ? (
                   <p className="font-semibold font-Work">
