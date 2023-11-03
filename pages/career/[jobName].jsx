@@ -61,13 +61,17 @@ const JobDetails = () => {
           <p className="text-[20px] md:text-[28px] font-bold font-Work">
             Job Location
           </p>
-          <p>{matchingJob.location}</p>
+          <p>Uttara(west), Dhaka</p>
         </div>
         <div className="mb-3">
           <p className="text-[20px] md:text-[28px] font-bold font-Work">
             Experience
           </p>
-          <p>{matchingJob.experience || 0}</p>
+          <ul className="list-disc ml-5">
+            {matchingJob.experience.map((context, idx) => {
+              return <li key={idx}>{context}</li>;
+            })}
+          </ul>
         </div>
         <div className="mb-3">
           <p className="text-[20px] md:text-[28px] font-bold font-Work">
