@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { JobInfo } from "@/utils/jobapi";
+
 import ApplyForm from "@/components/applyForm";
+
+import { useData } from "../../utils/fetchData";
 
 const JobDetails = () => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
-  if (!router.isReady) {
+  const { data, loading, error } = useData("/get-active-job");
+
+  console.log("Data from job page: ", data);
+
+  if (loading) {
     // Router is not ready yet, you can show a loading indicator here
     return (
       <div className="h-screen w-full flex items-center justify-center text-[22px] md:text-[32px] ">
@@ -22,7 +28,7 @@ const JobDetails = () => {
     return <div>Job not found</div>;
   }
   // Use the 'find' method to find the job with the matching 'jobName'
-  const matchingJob = JobInfo.find((job) => job.jobName === targetJobName);
+  const matchingJob = data.find((job) => job.jobName === targetJobName);
   if (!matchingJob) {
     // Handle the case where no matching job is found (e.g., display an error message)
     return <div>Job not found</div>;
@@ -132,8 +138,21 @@ const JobDetails = () => {
           </ul>
         </div>
         <div className="mb-3">
+          <p className="text-[20px] md:text-[28px] font-bold font-Work">
+            Job Deadline
+          </p>
+          <p>
+            {matchingJob.deadline
+              ? matchingJob.deadline
+              : "No deadline for this job. We are continuously hiring"}
+          </p>
+        </div>
+        <div className="mb-3">
           <p className="text-[20px] md:text-[28px] font-bold">How to apply</p>
-          <p>{matchingJob.howTo}</p>
+          <p>
+            Please click the apply form and send us your information with your
+            Resume. Resume must contain photography
+          </p>
         </div>
       </div>
       <button

@@ -5,11 +5,11 @@ import Link from "next/link";
 
 import { JobInfo } from "@/utils/jobapi";
 
-const Jobs = () => {
+const Jobs = ({ data }) => {
   return (
     <div className="w-full md:py-10 h-auto ">
       <h3 className="text-[24px] md:text-[36px] font-bold text-center">Jobs</h3>
-      {JobInfo.map((job, idx) => {
+      {data.map((job, idx) => {
         return (
           <div
             key={idx}
@@ -31,10 +31,18 @@ const Jobs = () => {
               <p className="font-semibold font-Work">
                 Location: {job.location}
               </p>
-              <div className="w-full bg-blue-700 flex text-white py-2 items-center pl-10 text-[16px] md:text-[18px] gap-x-2">
-                <IoMdWarning />
-                <p>There is no deadline</p>
-              </div>
+              {job.deadline ? (
+                <p className="font-semibold font-Work">
+                  Deadline:{job.deadline}
+                </p>
+              ) : (
+                <>
+                  <div className="w-full bg-blue-700 flex text-white py-2 items-center pl-10 text-[16px] md:text-[18px] gap-x-2">
+                    <IoMdWarning />
+                    <p>There is no deadline</p>
+                  </div>
+                </>
+              )}
             </Link>
           </div>
         );
