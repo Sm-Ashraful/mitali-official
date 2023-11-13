@@ -6,7 +6,7 @@ import Support from "./partials/Support";
 import HowService from "./partials/HowService";
 import Gallery from "./partials/Gelery";
 import PopUp from "../popup";
-import { useStateValue } from "@/context/StateProvider";
+import { useStateValue } from "../../context/StateProvider";
 
 const Homepage = () => {
   const [{ isContactFormOpen }, dispatch] = useStateValue();

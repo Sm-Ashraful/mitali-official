@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaFacebookF, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
-import useDimensions from "@/components/Hook/use-dimension";
 import Nav from "./Navbar";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useStateValue } from "@/context/StateProvider";
+import { useStateValue } from "../../../context/StateProvider";
 import Image from "next/image";
 
 const sidebar = {

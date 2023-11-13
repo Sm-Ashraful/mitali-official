@@ -4,7 +4,7 @@ import Nav from "./Navbar";
 
 import { FaFacebookF, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { useRouter } from "next/router";
-import { useStateValue } from "@/context/StateProvider";
+import { useStateValue } from "../../../context/StateProvider";
 
 const Sidebar = () => {
   const [sidebarTop, setSidebarTop] = useState("top-[120px]");

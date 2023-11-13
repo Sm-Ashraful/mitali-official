@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 
-import ApplyForm from "@/components/applyForm";
+import ApplyForm from "../../components/applyForm";
 
 import { useData } from "../../utils/fetchData";
 

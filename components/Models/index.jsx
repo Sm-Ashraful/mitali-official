@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Backdrop from "../Backdrop";
-import { useStateValue } from "@/context/StateProvider";
+import { useStateValue } from "../../context/StateProvider";
 import { gsap } from "gsap";
 
 const Model = (props) => {

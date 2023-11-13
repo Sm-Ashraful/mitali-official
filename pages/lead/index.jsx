@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-import handler from "@/utils/ip";
+import handler from "../../utils/ip";
 
-import { axiosInstance } from "@/utils/axios";
-import axios from "axios";
+import { axiosInstance } from "../../utils/axios";
 
 const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
   //   const [{ contactInfo }, dispatch] = useStateValue();

@@ -7,14 +7,14 @@ import { useState, useEffect } from "react";
 import SelectTime from "./partials/SelectTime";
 import MeetingForm from "./partials/MeetingForm";
 import dayjs from "dayjs";
-import { generator, months } from "@/context/calender";
-import cn from "@/context/ch";
+import { generator, months } from "../../context/calender";
+import cn from "../../context/ch";
 
 import Swal from "sweetalert2";
 
-import { useStateValue } from "@/context/StateProvider";
+import { useStateValue } from "../../context/StateProvider";
 import { useRouter } from "next/router";
-import { axiosInstance } from "@/utils/axios";
+import { axiosInstance } from "../../utils/axios";
 
 const ArrangeMeeting = ({ mobileView }) => {
   const days = ["S", "M", "T", "W", "T", "F", "S"];
