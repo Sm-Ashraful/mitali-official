@@ -1,3 +1,4 @@
+"use client";
 import { useStateValue } from "@/context/StateProvider";
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
