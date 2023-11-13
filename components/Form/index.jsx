@@ -1,9 +1,9 @@
 "use client";
-import { useStateValue } from "@/context/StateProvider";
+import { useStateValue } from "../../context/StateProvider";
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-import { axiosInstance } from "@/utils/axios";
+import { axiosInstance } from "../../utils/axios";
 
 const ContactForm = ({ formTitle, type }) => {
   const [{ contactInfo }, dispatch] = useStateValue();
