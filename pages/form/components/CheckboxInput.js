@@ -16,7 +16,7 @@ const CheckboxContainer = styled.div`
   }
 `;
 
-export default function CheckboxInput({ id }) {
+export function CheckboxInput({ id }) {
   const { options, customOption } = useCheckboxInput(id);
 
   return (

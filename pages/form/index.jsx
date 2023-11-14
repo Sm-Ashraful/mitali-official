@@ -5,10 +5,9 @@ import { GoogleFormProvider, useGoogleForm } from "react-google-forms-hooks";
 
 import form from "../../googleForm.json";
 
-import CheckboxInput from "./components/CheckboxInput";
-import RadioInput from "./components/RadioInput";
-import ShortAnswerInput from "./components/ShortAnswerInput";
-import DateTimeInput from "./components/DateTimeInput";
+import { CheckboxInput } from "./components/CheckboxInput";
+import { RadioInput } from "./components/RadioInput";
+import { ShortAnswerInput } from "./components/ShortAnswerInput";
 
 const QuestionContainer = styled.div`
   margin-bottom: 20px;
@@ -73,33 +72,31 @@ const LeadForm = () => {
       });
   };
   return (
-    <>
-      <GoogleFormProvider {...methods}>
-        <form
-          onSubmit={methods.handleSubmit(onSubmit)}
-          className="relative top-[6rem] my-0 mx-auto max-w-xl  px-5 pt-5 mb-10"
-        >
-          <div className="w-full">
-            <img src="/rrr.png" alt="logo image" />
+    <GoogleFormProvider {...methods}>
+      <form
+        onSubmit={methods.handleSubmit(onSubmit)}
+        className="relative top-[6rem] my-0 mx-auto max-w-xl  px-5 pt-5 mb-10"
+      >
+        <div className="w-full">
+          <img src="/rrr.png" alt="logo image" />
+        </div>
+        {form.title && (
+          <div className="pb-5">
+            <h1>{form.title}</h1>
+            {form.description && (
+              <p style={{ fontSize: ".8rem" }}>{form.description}</p>
+            )}
           </div>
-          {form.title && (
-            <div className="pb-5">
-              <h1>{form.title}</h1>
-              {form.description && (
-                <p style={{ fontSize: ".8rem" }}>{form.description}</p>
-              )}
-            </div>
-          )}
-          <Questions />
-          <button
-            type="submit"
-            className="mt-5 rounded-xl bg-[#052149] px-5 py-3 text-base font-medium text-white transition duration-200 hover:bg-blue-600 active:bg-blue-700 dark:bg-blue-400 dark:text-white dark:hover:bg-blue-300 dark:active:bg-blue-200"
-          >
-            Submit
-          </button>
-        </form>
-      </GoogleFormProvider>
-    </>
+        )}
+        <Questions />
+        <button
+          type="submit"
+          className="mt-5 rounded-xl bg-[#052149] px-5 py-3 text-base font-medium text-white transition duration-200 hover:bg-blue-600 active:bg-blue-700 dark:bg-blue-400 dark:text-white dark:hover:bg-blue-300 dark:active:bg-blue-200"
+        >
+          Submit
+        </button>
+      </form>
+    </GoogleFormProvider>
   );
 };
 

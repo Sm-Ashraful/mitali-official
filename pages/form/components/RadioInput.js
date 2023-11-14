@@ -21,7 +21,7 @@ const ErrorLabel = styled.span`
   padding: 10px 0;
 `;
 
-export default function RadioInput({ id }) {
+export function RadioInput({ id }) {
   const { options, customOption, error } = useRadioInput(id);
 
   return (
