@@ -2,12 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 import { GoogleFormProvider, useGoogleForm } from "react-google-forms-hooks";
+import { useCheckboxInput } from "react-google-forms-hooks";
+import { useShortAnswerInput } from "react-google-forms-hooks";
+import { useRadioInput } from "react-google-forms-hooks";
 
 import form from "../../googleForm.json";
-
-import { CheckboxInput } from "./components/CheckboxInput";
-import { RadioInput } from "./components/RadioInput";
-import { ShortAnswerInput } from "./components/ShortAnswerInput";
 
 const QuestionContainer = styled.div`
   margin-bottom: 20px;
@@ -22,6 +21,105 @@ const QuestionHelp = styled.p`
   color: #5c5c5c;
   margin-top: 0px;
 `;
+
+const ErrorLabel = styled.span`
+  color: red;
+  padding: 10px 0;
+`;
+
+function RadioInput({ id }) {
+  const { options, customOption, error } = useRadioInput(id);
+
+  return (
+    <Container>
+      {options.map((o) => (
+        <CheckboxContainer key={o.id}>
+          <input
+            type="radio"
+            id={o.id}
+            {...o.registerOption()}
+            className="pr-3"
+          />
+          <label htmlFor={o.id}>{o.label}</label>
+        </CheckboxContainer>
+      ))}
+      {customOption && (
+        <CheckboxContainer>
+          <input
+            type="radio"
+            id={customOption.id}
+            {...customOption.registerOption()}
+          />
+          <label htmlFor={customOption.id}>Outra</label>
+          <input
+            type="text"
+            placeholder="Resposta aqui"
+            {...customOption.registerCustomInput()}
+          />
+        </CheckboxContainer>
+      )}
+      <ErrorLabel>{error && "This field is required"}</ErrorLabel>
+    </Container>
+  );
+}
+
+function ShortAnswerInput({ id }) {
+  const { register } = useShortAnswerInput(id);
+
+  return (
+    <div>
+      <input type="text" {...register()} className="w-full bg-black/10 py-2" />
+    </div>
+  );
+}
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const CheckboxContainer = styled.div`
+  display: flex;
+
+  & label {
+    margin: 0 10px;
+  }
+`;
+
+function CheckboxInput({ id }) {
+  const { options, customOption } = useCheckboxInput(id);
+
+  return (
+    <Container>
+      {options.map((o) => (
+        <CheckboxContainer key={o.id}>
+          <input
+            type="checkbox"
+            id={o.id}
+            {...o.registerOption()}
+            className="pr-3"
+          />
+          <label htmlFor={o.id}>{o.label}</label>
+        </CheckboxContainer>
+      ))}
+      {customOption && (
+        <CheckboxContainer>
+          <input
+            type="checkbox"
+            id={customOption.id}
+            {...customOption.registerOption()}
+          />
+          <label htmlFor={customOption.id}>Outra</label>
+          <input
+            type="text"
+            placeholder="Resposta aqui"
+            {...customOption.registerCustomInput()}
+          />
+        </CheckboxContainer>
+      )}
+    </Container>
+  );
+}
 
 const Questions = () => {
   return (
