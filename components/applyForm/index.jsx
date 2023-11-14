@@ -33,7 +33,6 @@ const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Input file: ", input);
 
     try {
       // Send the formData to the server
