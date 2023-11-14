@@ -2,7 +2,7 @@ import { useStateValue } from "../../context/StateProvider";
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-import { axiosInstance } from "@/utils/axios";
+import { axiosInstance } from "../../utils/axios";
 import Backdrop from "../Backdrop";
 import axios from "axios";
 
