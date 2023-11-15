@@ -17,6 +17,7 @@ const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
     City: "",
     PhoneNumber: "",
     EmailAddress: "",
+    DateOfBirth: "",
   });
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -41,6 +42,18 @@ const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
           text: res.data.message,
           icon: "success",
         });
+        setInput({
+          ZipCode: "",
+          State: "",
+          Address: "",
+          IpAddress: handler,
+          FirstName: "",
+          LastName: "",
+          City: "",
+          PhoneNumber: "",
+          EmailAddress: "",
+          DateOfBirth: "",
+        });
       } else {
         Swal.fire({
           title: "Error",
@@ -56,180 +69,198 @@ const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
   };
 
   return (
-    <>
-      <div className="w-[95%] md:w-auto relative top-[6rem] mb-10   px-2 md:px-16">
-        <div className="w-full md:w-[580px] mx-auto bg-white p-4 rounded-lg shadow-lg flex justify-center items-center ">
-          <div>
-            <h2
-              className={`text-[22px] uppercase font-bold  border-b-2 border-black mr-6 type === "help" ? "" : " text-center"
+    <div className="w-[95%] md:w-auto relative top-[5.5rem] mb-16   px-2 md:px-16">
+      <div className="w-full md:w-[580px] mx-auto bg-white p-4 rounded-lg  flex justify-center items-center ">
+        <div>
+          <h2
+            className={`text-[22px] uppercase font-bold  border-b-2 border-black mr-6 type === "help" ? "" : " text-center"
         }`}
-            >
-              Lead Form
-            </h2>
+          >
+            Lead Form
+          </h2>
 
-            <form onSubmit={handleSubmit} className="w-full  max-w-lg mt-5 ">
-              <div className="flex flex-wrap -mx-3">
-                <div className="w-full md:w-1/2 px-3 md:mb-0">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    for="grid-first-name"
-                  >
-                    First Name
-                    <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="FirstName"
-                    value={input.FirstName}
-                    className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                    id="grid-first-name"
-                    type="text"
-                    placeholder="Jane"
-                    onChange={onChangeHandler}
-                  />
-                </div>
-                <div className="w-full md:w-1/2 px-3 md:mb-0">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    for="grid-first-name"
-                  >
-                    Last Name
-                    <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="LastName"
-                    value={input.LastName}
-                    className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                    id="grid-first-name"
-                    type="text"
-                    placeholder="Jane"
-                    onChange={onChangeHandler}
-                  />
-                </div>
-              </div>
-              <div className="flex flex-wrap -mx-3">
-                <div className="w-full md:w-1/2 px-3">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    for="grid-password"
-                  >
-                    Email
-                    <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="EmailAddress"
-                    value={input.EmailAddress}
-                    className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-password"
-                    type="email"
-                    placeholder="example@gmail.com"
-                    onChange={onChangeHandler}
-                  />
-                </div>
-                <div className="w-full md:w-1/2 px-3">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    for="grid-last-name"
-                  >
-                    Phone number
-                  </label>
-                  <input
-                    name="PhoneNumber"
-                    value={input.PhoneNumber}
-                    className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-last-name"
-                    type="phone"
-                    placeholder="0123 4567 89"
-                    onChange={onChangeHandler}
-                  />
-                </div>
-              </div>
-              <div className="flex flex-wrap -mx-3">
-                <div className="w-full px-3">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    for="grid-password"
-                  >
-                    Address
-                    <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="Address"
-                    value={input.Address}
-                    className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-password"
-                    onChange={onChangeHandler}
-                  />
-                </div>
-              </div>
-              <div className="flex  -mx-3">
-                <div className="w-1/3 px-3">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    for="grid-password"
-                  >
-                    State
-                    <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="State"
-                    value={input.State}
-                    className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-password"
-                    type="text"
-                    onChange={onChangeHandler}
-                  />
-                </div>
-
-                <div className="w-1/3 px-3">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    for="grid-password"
-                  >
-                    City
-                    <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="City"
-                    value={input.City}
-                    className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-password"
-                    type="text"
-                    onChange={onChangeHandler}
-                  />
-                </div>
-
-                <div className="w-1/3 px-3">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    for="grid-password"
-                  >
-                    Zip Code
-                    <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="ZipCode"
-                    value={input.ZipCode}
-                    className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-password"
-                    type="text"
-                    onChange={onChangeHandler}
-                  />
-                </div>
-              </div>
-
-              <div class={`md:flex md:items-center justify-end `}>
-                <button
-                  class={`shadow   bg-[#0f1235] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded`}
-                  type="submit"
+          <form onSubmit={handleSubmit} className="w-full  max-w-lg mt-5 ">
+            <div className="flex flex-wrap -mx-3">
+              <div className="w-full md:w-1/2 px-3 md:mb-0">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
                 >
-                  Submit
-                </button>
+                  First Name
+                  <span className="text-red-500">*</span>
+                </label>
+                <input
+                  name="FirstName"
+                  value={input.FirstName}
+                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  id="grid-first-name"
+                  type="text"
+                  placeholder="Jane"
+                  onChange={onChangeHandler}
+                />
               </div>
-            </form>
-          </div>
+              <div className="w-full md:w-1/2 px-3 md:mb-0">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
+                >
+                  Last Name
+                  <span className="text-red-500">*</span>
+                </label>
+                <input
+                  name="LastName"
+                  value={input.LastName}
+                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  id="grid-first-name"
+                  type="text"
+                  placeholder="Jane"
+                  onChange={onChangeHandler}
+                />
+              </div>
+            </div>
+
+            <div className="w-full">
+              <label
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-password"
+              >
+                Email
+                <span className="text-red-500">*</span>
+              </label>
+              <input
+                name="EmailAddress"
+                value={input.EmailAddress}
+                className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-password"
+                type="email"
+                placeholder="example@gmail.com"
+                onChange={onChangeHandler}
+              />
+            </div>
+            <div className="flex flex-wrap -mx-3 pb-2">
+              <div className="w-full md:w-1/2 px-3">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-last-name"
+                >
+                  Phone number
+                </label>
+                <input
+                  name="PhoneNumber"
+                  value={input.PhoneNumber}
+                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-last-name"
+                  type="phone"
+                  placeholder="0123 4567 89"
+                  onChange={onChangeHandler}
+                />
+              </div>
+              <div className="w-full md:w-1/2 px-3">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-last-name"
+                >
+                  Date of Birth
+                </label>
+                <input
+                  name="DateOfBirth"
+                  value={input.DateOfBirth}
+                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-last-name"
+                  type="phone"
+                  placeholder="DD/MM/YYYY"
+                  onChange={onChangeHandler}
+                />
+              </div>
+            </div>
+            <div className="flex flex-wrap -mx-3">
+              <div className="w-full px-3">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  Address
+                  <span className="text-red-500">*</span>
+                </label>
+                <input
+                  name="Address"
+                  value={input.Address}
+                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-password"
+                  onChange={onChangeHandler}
+                />
+              </div>
+            </div>
+            <div className="flex  -mx-3">
+              <div className="relative w-1/3 px-3">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  State
+                </label>
+                <input
+                  name="State"
+                  value={input.State}
+                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-password"
+                  type="text"
+                  onChange={onChangeHandler}
+                />
+                <span className="absolute bottom-0 left-3 text-red-500 text-[8px]">
+                  *state should be short form like AL, AK...
+                </span>
+              </div>
+
+              <div className="w-1/3 px-3">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  City
+                  <span className="text-red-500">*</span>
+                </label>
+                <input
+                  name="City"
+                  value={input.City}
+                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-password"
+                  type="text"
+                  onChange={onChangeHandler}
+                />
+              </div>
+
+              <div className="w-1/3 px-3">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  Zip Code
+                  <span className="text-red-500">*</span>
+                </label>
+                <input
+                  name="ZipCode"
+                  value={input.ZipCode}
+                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-password"
+                  type="text"
+                  onChange={onChangeHandler}
+                />
+              </div>
+            </div>
+
+            <div class={`md:flex md:items-center justify-end `}>
+              <button
+                class={`shadow   bg-[#0f1235] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded`}
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
