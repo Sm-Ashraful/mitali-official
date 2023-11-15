@@ -63,12 +63,16 @@ function RadioInput({ id }) {
   );
 }
 
-function ShortAnswerInput({ id }) {
+function ShortAnswerInput({ id, label }) {
   const { register } = useShortAnswerInput(id);
 
   return (
     <div>
-      <input type="text" {...register()} className="w-full bg-black/10 py-2" />
+      <input
+        type="text"
+        {...register()}
+        className="w-full bg-black/10 py-2 pl-3"
+      />
     </div>
   );
 }
@@ -125,7 +129,7 @@ const Questions = () => {
   return (
     <div className="">
       {form.fields.map((field) => {
-        const { id } = field;
+        const { id, label } = field;
 
         let questionInput = null;
         switch (field.type) {
@@ -136,7 +140,9 @@ const Questions = () => {
             questionInput = <RadioInput id={id} type="RADIO" />;
             break;
           case "SHORT_ANSWER":
-            questionInput = <ShortAnswerInput id={id} type="SHORT_ANSWER" />;
+            questionInput = (
+              <ShortAnswerInput id={id} type="SHORT_ANSWER" label={label} />
+            );
             break;
         }
 
@@ -175,9 +181,6 @@ const LeadForm = () => {
         onSubmit={methods.handleSubmit(onSubmit)}
         className="relative top-[6rem] my-0 mx-auto max-w-xl  px-5 pt-5 mb-10"
       >
-        <div className="w-full">
-          <img src="/rrr.png" alt="logo image" />
-        </div>
         {form.title && (
           <div className="pb-5">
             <h1>{form.title}</h1>
