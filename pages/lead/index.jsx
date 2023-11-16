@@ -31,26 +31,46 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("Input: ", input.ZipCode);
-    // console.log("Zipcode; ", zipCode.Zip);
-    // const isValid = zipCode.Zip.includes(input.ZipCode);
-    // console.log("Hellog: ", isValid);
 
-    // if (isValid) {
+    const isValid = zipCode.some((code) => code.Zip === input.ZipCode);
 
-    // } else {
-    //   alert("You'r fucked up. Invalid Zip code");
-    // }
-    try {
-      // Send the formData to the server
-      const res = await axiosInstance.post("/form/submit-lead", input);
-      console.log("Response: ", res);
-      if (res.status === 200) {
+    if (isValid) {
+      try {
+        // Send the formData to the server
+        const res = await axiosInstance.post("/form/submit-lead", input);
+        console.log("Response: ", res);
+        if (res.status === 200) {
+          Swal.fire({
+            title: res.data.Success,
+            text: res.data.message,
+            icon: "success",
+          });
+          setInput({
+            ZipCode: "",
+            State: "",
+            Address: "",
+            IpAddress: handler,
+            FirstName: "",
+            LastName: "",
+            City: "",
+            PhoneNumber: "",
+            EmailAddress: "",
+            DateOfBirth: "",
+          });
+        } else {
+          Swal.fire({
+            title: res.data.Success,
+            text: res.data.message,
+            icon: "error",
+          });
+        }
+      } catch (error) {
         Swal.fire({
-          title: res.data.Success,
-          text: res.data.message,
-          icon: "success",
+          title: "Error",
+          text: error.message,
+          icon: "error",
         });
+
         setInput({
           ZipCode: "",
           State: "",
@@ -63,32 +83,9 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
           EmailAddress: "",
           DateOfBirth: "",
         });
-      } else {
-        Swal.fire({
-          title: res.data.Success,
-          text: res.data.message,
-          icon: "error",
-        });
       }
-    } catch (error) {
-      Swal.fire({
-        title: "Error",
-        text: error.message,
-        icon: "error",
-      });
-
-      setInput({
-        ZipCode: "",
-        State: "",
-        Address: "",
-        IpAddress: handler,
-        FirstName: "",
-        LastName: "",
-        City: "",
-        PhoneNumber: "",
-        EmailAddress: "",
-        DateOfBirth: "",
-      });
+    } else {
+      alert("You'r fucked up. Invalid Zip code");
     }
   };
 
