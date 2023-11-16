@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import handler from "../../utils/ip";
 
 import { axiosInstance } from "../../utils/axios";
+import zipCode from "../../utils/zipCode.json";
 
 const LeadForm = ({ isOpen, onClose, jobTitle }) => {
   //   const [{ contactInfo }, dispatch] = useStateValue();
@@ -30,11 +31,20 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // console.log("Input: ", input.ZipCode);
+    // console.log("Zipcode; ", zipCode.Zip);
+    // const isValid = zipCode.Zip.includes(input.ZipCode);
+    // console.log("Hellog: ", isValid);
 
+    // if (isValid) {
+
+    // } else {
+    //   alert("You'r fucked up. Invalid Zip code");
+    // }
     try {
       // Send the formData to the server
       const res = await axiosInstance.post("/form/submit-lead", input);
-
+      console.log("Response: ", res);
       if (res.status === 200) {
         Swal.fire({
           title: res.data.Success,
@@ -149,6 +159,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                 type="email"
                 placeholder="example@gmail.com"
                 onChange={onChangeHandler}
+                required
               />
             </div>
             <div className="flex flex-wrap -mx-3 pb-2">
@@ -167,6 +178,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                   type="phone"
                   placeholder="0123 4567 89"
                   onChange={onChangeHandler}
+                  required
                 />
               </div>
               <div className="relative w-full md:w-1/2 px-3">
@@ -184,6 +196,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                   type="phone"
                   placeholder="YYYY-MM-DD"
                   onChange={onChangeHandler}
+                  required
                 />
                 <span className="absolute -bottom-3 left-3 text-red-500 text-[8px]">
                   *Date of birth should be YYYY-MM-DD format...
@@ -205,6 +218,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                   className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-password"
                   onChange={onChangeHandler}
+                  required
                 />
               </div>
             </div>
@@ -223,6 +237,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                   id="grid-password"
                   type="text"
                   onChange={onChangeHandler}
+                  required
                 />
                 <span className="absolute bottom-0 left-3 text-red-500 text-[8px]">
                   *state should be short form like AL, AK...
@@ -261,6 +276,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                   id="grid-password"
                   type="text"
                   onChange={onChangeHandler}
+                  required
                 />
               </div>
             </div>
