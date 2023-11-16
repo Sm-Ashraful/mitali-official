@@ -5,7 +5,7 @@ import handler from "../../utils/ip";
 
 import { axiosInstance } from "../../utils/axios";
 
-const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
+const LeadForm = ({ isOpen, onClose, jobTitle }) => {
   //   const [{ contactInfo }, dispatch] = useStateValue();
   const [input, setInput] = useState({
     ZipCode: "",
@@ -36,9 +36,8 @@ const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
       const res = await axiosInstance.post("/form/submit-lead", input);
 
       if (res.status === 200) {
-        console.log("Response: ", res.data);
         Swal.fire({
-          title: "Success",
+          title: res.data.Success,
           text: res.data.message,
           icon: "success",
         });
@@ -56,15 +55,30 @@ const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
         });
       } else {
         Swal.fire({
-          title: "Error",
+          title: res.data.Success,
           text: res.data.message,
           icon: "error",
         });
       }
-
-      onClose();
     } catch (error) {
-      console.error("Error:", error);
+      Swal.fire({
+        title: "Error",
+        text: error.message,
+        icon: "error",
+      });
+
+      setInput({
+        ZipCode: "",
+        State: "",
+        Address: "",
+        IpAddress: handler,
+        FirstName: "",
+        LastName: "",
+        City: "",
+        PhoneNumber: "",
+        EmailAddress: "",
+        DateOfBirth: "",
+      });
     }
   };
 
@@ -155,7 +169,7 @@ const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
                   onChange={onChangeHandler}
                 />
               </div>
-              <div className="w-full md:w-1/2 px-3">
+              <div className="relative w-full md:w-1/2 px-3">
                 <label
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                   for="grid-last-name"
@@ -168,9 +182,12 @@ const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
                   className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-last-name"
                   type="phone"
-                  placeholder="DD/MM/YYYY"
+                  placeholder="YYYY-MM-DD"
                   onChange={onChangeHandler}
                 />
+                <span className="absolute -bottom-3 left-3 text-red-500 text-[8px]">
+                  *Date of birth should be YYYY-MM-DD format...
+                </span>
               </div>
             </div>
             <div className="flex flex-wrap -mx-3">
@@ -218,7 +235,6 @@ const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
                   for="grid-password"
                 >
                   City
-                  <span className="text-red-500">*</span>
                 </label>
                 <input
                   name="City"
@@ -264,4 +280,4 @@ const ApplyForm = ({ isOpen, onClose, jobTitle }) => {
   );
 };
 
-export default ApplyForm;
+export default LeadForm;
