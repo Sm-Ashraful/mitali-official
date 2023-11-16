@@ -7,6 +7,7 @@ import { axiosInstance } from "../../utils/axios";
 import zipCode from "../../utils/zipCode.json";
 
 const LeadForm = ({ isOpen, onClose, jobTitle }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   //   const [{ contactInfo }, dispatch] = useStateValue();
   const [input, setInput] = useState({
     ZipCode: "",
@@ -31,6 +32,11 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) {
+      return;
+    }
+
+    setIsSubmitting(true);
 
     const isValid = zipCode.some((code) => code.Zip === input.ZipCode);
 
