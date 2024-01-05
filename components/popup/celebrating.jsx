@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Backdrop from "../Backdrop"; // Import the Backdrop component
 import ContactForm from "../Form";
 import Image from "next/image";
-import celebrate from "../../Assets/Global/9yrs.jpeg";
+import celebrate from "../../Assets/Global/celebrate.jpeg";
 
 const PopUpCelebrate = ({ isOpen, onClose, mobileView }) => {
   const [popupOpen, setPopupOpen] = useState();
