@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import handler from "../../utils/ip";
 
 import { axiosInstance } from "../../utils/axios";
-import zipCode from "../../utils/zipCode.json";
+import zipCode from "../../utils/zipCodeFirst.json";
 
 const LeadForm = ({ isOpen, onClose, jobTitle }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -66,14 +66,14 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
         } else {
           Swal.fire({
             title: res.data.Success,
-            text: res.data.message,
+            text: res.data.message || res.data.error,
             icon: "error",
           });
         }
       } catch (error) {
         Swal.fire({
           title: "Error",
-          text: error.message,
+          text: error.message || error?.error,
           icon: "error",
         });
 
