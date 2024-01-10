@@ -38,13 +38,15 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
 
     setIsSubmitting(true);
 
-    const isValid = zipCode.some((code) => code.Zip === input.ZipCode);
+    const isValid = zipCode.some(
+      (code) => code.Zip.toString() === input.ZipCode
+    );
 
     if (isValid) {
       try {
         // Send the formData to the server
         const res = await axiosInstance.post("/form/submit-lead", input);
-        console.log("Response: ", res);
+
         if (res.status === 200) {
           Swal.fire({
             title: res.data.Success,
