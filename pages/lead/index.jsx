@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import handler from "../../utils/ip";
 
 import { axiosInstance } from "../../utils/axios";
-import zipCode from "../../utils/zipCodeFirst.json";
+import zipCode from "../../utils/zipCodeSecond.json";
 
 const LeadForm = ({ isOpen, onClose, jobTitle }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
