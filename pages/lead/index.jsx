@@ -5,6 +5,7 @@ import handler from "../../utils/ip";
 
 import { axiosInstance } from "../../utils/axios";
 import zipCode from "../../utils/zipCodeSecond.json";
+import toast, { Toaster } from "react-hot-toast";
 
 const LeadForm = ({ isOpen, onClose, jobTitle }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,27 +33,14 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isSubmitting) {
-      return;
-    }
-
     setIsSubmitting(true);
-
-    const isValid = zipCode.some(
-      (code) => code.Zip.toString() === input.ZipCode
-    );
-
-    if (isValid) {
-      try {
+    try {
         // Send the formData to the server
         const res = await axiosInstance.post("/form/submit-lead", input);
 
         if (res.status === 200) {
-          Swal.fire({
-            title: res.data.Success,
-            text: res.data.message,
-            icon: "success",
-          });
+          setIsSubmitting(false)
+          toast.success(res.data.message)
           setInput({
             ZipCode: "",
             State: "",
@@ -66,37 +54,17 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
             DateOfBirth: "",
           });
         } else {
-          Swal.fire({
-            title: res.data.Success,
-            text: res.data.message || res.data.error,
-            icon: "error",
-          });
+          setIsSubmitting(false)
+          toast.error(res.data.message || res.data.error)
         }
       } catch (error) {
-        Swal.fire({
-          title: "Error",
-          text: error.message || error?.error,
-          icon: "error",
-        });
-
-        setInput({
-          ZipCode: "",
-          State: "",
-          Address: "",
-          IpAddress: handler,
-          FirstName: "",
-          LastName: "",
-          City: "",
-          PhoneNumber: "",
-          EmailAddress: "",
-          DateOfBirth: "",
-        });
+      
+        setIsSubmitting(false)
+        toast.error(error.response.data.message || error?.error)
+        
       }
-    } else {
-      alert("You'r fucked up. Invalid Zip code");
-    }
-  };
 
+  }
   return (
     <div className="w-[95%] md:w-auto relative top-[5.5rem] mb-16   px-2 md:px-16">
       <div className="w-full md:w-[580px] mx-auto bg-white p-4 rounded-lg  flex justify-center items-center ">
@@ -287,14 +255,22 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
             </div>
 
             <div class={`md:flex md:items-center justify-end `}>
+
+            
               <button
-                class={`shadow   bg-[#0f1235] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded`}
+                class={`shadow   bg-[#0f1235] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex gap-2 items-center justify-center`}
                 type="submit"
+               disabled={isSubmitting} 
               >
-                Submit
+              {isSubmitting && <span className="loading loading-spinner text-secondary"></span>}
+              <span>Submit</span>
               </button>
             </div>
           </form>
+          <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
         </div>
       </div>
     </div>
