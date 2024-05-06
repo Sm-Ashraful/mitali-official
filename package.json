@@ -28,6 +28,7 @@
     "react-calendar": "^4.6.0",
     "react-dom": "18.2.0",
     "react-google-forms-hooks": "^1.2.4",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^4.10.1",
     "react-select": "^5.7.4",
     "react-sweetalert2": "^0.6.0",
@@ -41,6 +42,7 @@
     "@iconify/react": "^4.1.1",
     "@types/node": "20.9.0",
     "autoprefixer": "^10.4.14",
+    "daisyui": "^4.6.1",
     "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3"
   }
