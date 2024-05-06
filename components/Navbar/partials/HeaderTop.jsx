@@ -12,8 +12,9 @@ const HeaderTop = () => {
           </span>
           <div className="">
             <p className="md:text-xl 2xl:text-2xl"> Location</p>
-            <p className="text-[9px] md:text-[16px] 2xl:text-[20px]">
-              House 11, Road 7, Sector 10, Uttara, Dhaka-1230
+            <p className="text-[8px] md:text-[14px] 2xl:text-[16px]">
+              Blessing Sagor Shaikat Bhabon, 8th Floor, House 12, Sector 11,
+              Sonargaon Janapath Road, Uttara, Dhaka 1230
             </p>
           </div>
         </div>

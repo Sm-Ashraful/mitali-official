@@ -100,7 +100,7 @@ const Footer = () => {
             <p>For Career Concern</p>
             <p> Call: 09606-919505</p>
             <p>Or Send Us Your CV</p>
-            <p>info@mitaliint.com</p>
+            <p>query@mitaliint.com</p>
           </div>
 
           <div
@@ -109,8 +109,8 @@ const Footer = () => {
             }`}
           >
             <p>For Business Queries</p>
-            <p> BD: +880 1234 5684 90</p>
-            <p>USA: +1 931 422 8003</p>
+            <p> BD: +880 9606 919505</p>
+            <p>USA: +1 (646) 208-8653</p>
           </div>
         </div>
         <div className="w-full md:w-1/4">
@@ -129,7 +129,7 @@ const Footer = () => {
               activeLink === "location" ? "block" : "hidden"
             }`}
           >
-            <p>In America: 4301 Pleasantdale Rd, Unit G Doraville, GA 30340</p>
+            <p>USA Office: 15925 NORMAL RD JAMAICA, NY 11432</p>
           </div>
           <div
             className={` md:block pt-5 text-[15px] text-slate-700 leading-[30px] font-Work ${
@@ -137,7 +137,8 @@ const Footer = () => {
             }`}
           >
             <p>
-              In Bangladesh: House 11, Road 7, Sector 10, Uttara, Dhaka-1230
+              BD Office: Blessing Sagor Shaikat Bhabon, 8th Floor, House 12,
+              Sector 11, Sonargaon Janapath Road, Uttara, Dhaka 1230
             </p>
           </div>
         </div>

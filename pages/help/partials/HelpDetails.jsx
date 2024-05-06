@@ -25,13 +25,14 @@ const HelpDetails = () => {
             your valuable feedback.
           </p>
           <p className="flex gap-3 pt-5 items-center text-[#777]">
-            <FaHome /> House 11, Road 7, Sector 10, Uttara, Dhaka-1230
+            <FaHome /> Blessing Sagor Shaikat Bhabon, 8th Floor, House 12,
+            Sector 11, Sonargaon Janapath Road, Uttara, Dhaka 1230
           </p>
           <p className="flex gap-3 pt-5 items-center text-[#777]">
             <FaPhone /> +09606-919505
           </p>
           <p className="flex gap-3 pt-5 items-center text-[#777]">
-            <FaMailBulk /> support@mitaliint.com
+            <FaMailBulk /> query@mitaliint.com
           </p>
           <p className="flex gap-3 pt-5 items-center text-[#777]">
             <FaClock /> 24/7 supports
