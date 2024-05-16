@@ -145,7 +145,7 @@ const Footer = () => {
       </div>
       <div className="bg-[#013953] py-2 px-2 md:px-16 w-full flex justify-center items-center font-bold">
         <p className="text-center text-sm text-white">
-          Copyright © 2015 - 2023 M/S Mitali International Limited
+          Copyright © 2015 - 2023 M/S Mitali International
         </p>
       </div>
     </div>

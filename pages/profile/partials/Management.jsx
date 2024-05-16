@@ -29,7 +29,7 @@ const Management = () => {
                 Md. Mahbubur Rahman
               </h3>
               <p className="italic text-end">
-                Proprietor & CEO <br /> M/S Mitali International Limited
+                Proprietor & CEO <br /> M/S Mitali International
               </p>
             </div>
           </div>
@@ -106,7 +106,7 @@ const Management = () => {
                 Monjula Rahman
               </h3>
               <p className="italic text-end">
-                Country Manager <br /> M/S Mitali International Limited
+                Country Manager <br /> M/S Mitali International
               </p>
             </div>
           </div>

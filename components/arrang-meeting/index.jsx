@@ -126,7 +126,7 @@ const ArrangeMeeting = ({ mobileView }) => {
             <div className="relative flex items-center justify-center text-white w-full md:w-[48%] md:h-full  p-5 bg-gradient-to-r from-[#0479ae]  to-[#045c94]">
               <div className=" pb-10 md:pb-2">
                 <h2 className="text-[26px] font-bold text-center ">
-                  Ms Mitali International Limited
+                  M/S Mitali International
                 </h2>
                 <p className="text-center font-semibold">
                   Discus With Us Via Google Meet
