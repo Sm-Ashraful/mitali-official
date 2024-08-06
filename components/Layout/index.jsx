@@ -44,7 +44,7 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/honeyhut logo.png" />
       </Head>
       <main
-        className={`relative min-h-screen max-w-[1992px] mx-auto ${roboto.className}`}
+        className={`relative min-h-screen max-w-[1992px] mx-auto bg-white `}
       >
         <ArrangeMeeting mobileView={mobileView} />
         <Navbar />

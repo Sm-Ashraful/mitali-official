@@ -25,7 +25,7 @@ const Gallery = () => {
         <h2 className="text-[38px] leading-9 text-[#464855] text-center font-[800] mb-[20px]">
           Welcome to Our Journey: A Glimpse Inside Mitali International Family
         </h2>
-        <p className="text-[10pt] 2xl:text-[20pt] text-slate-500 font-Inter leading-[20px] xl:leading-[32px]">
+        <p className="text-[10pt] 2xl:text-[15pt] text-slate-500 font-Inter leading-[20px] xl:leading-[32px]">
           Step into our world and explore the heart of Mitali International
           family through these captivating images. Our gallery offers a candid
           peek into our team&#39;s dynamic journey, showcasing not just our
@@ -99,7 +99,7 @@ const Gallery = () => {
             </Swiper>
           </div>
           <div className="flex-1 gap-5 overflow-clip">
-            <p className="text-[10pt] 2xl:text-[20pt] text-slate-500 font-Inter leading-[26px] xl:leading-[32px]">
+            <p className="text-[10pt] 2xl:text-[15pt] text-slate-500 font-Inter leading-[26px] xl:leading-[32px]">
               Within these frames, you&#39;ll witness our cherished moments, be
               it the sun-kissed memories of our vacations or the vibrant
               snapshots of the events we enthusiastically participate in. We

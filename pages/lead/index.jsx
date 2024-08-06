@@ -35,38 +35,35 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-        // Send the formData to the server
-        const res = await axiosInstance.post("/form/submit-lead", input);
+      // Send the formData to the server
+      const res = await axiosInstance.post("/form/submit-lead", input);
 
-        if (res.status === 200) {
-          setIsSubmitting(false)
-          toast.success(res.data.message)
-          setInput({
-            ZipCode: "",
-            State: "",
-            Address: "",
-            IpAddress: handler,
-            FirstName: "",
-            LastName: "",
-            City: "",
-            PhoneNumber: "",
-            EmailAddress: "",
-            DateOfBirth: "",
-          });
-        } else {
-          setIsSubmitting(false)
-          toast.error(res.data.message || res.data.error)
-        }
-      } catch (error) {
-      
-        setIsSubmitting(false)
-        toast.error(error.response.data.message || error?.error)
-        
+      if (res.status === 200) {
+        setIsSubmitting(false);
+        toast.success(res.data.message);
+        setInput({
+          ZipCode: "",
+          State: "",
+          Address: "",
+          IpAddress: handler,
+          FirstName: "",
+          LastName: "",
+          City: "",
+          PhoneNumber: "",
+          EmailAddress: "",
+          DateOfBirth: "",
+        });
+      } else {
+        setIsSubmitting(false);
+        toast.error(res.data.message || res.data.error);
       }
-
-  }
+    } catch (error) {
+      setIsSubmitting(false);
+      toast.error(error.response.data.message || error?.error);
+    }
+  };
   return (
-    <div className="w-[95%] md:w-auto relative top-[5.5rem] mb-16   px-2 md:px-16">
+    <div className="w-[95%] md:w-auto relative top-[5.5rem] xl:top-[8.5rem] mb-16   px-2 md:px-16">
       <div className="w-full md:w-[580px] mx-auto bg-white p-4 rounded-lg  flex justify-center items-center ">
         <div>
           <h2
@@ -89,7 +86,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                 <input
                   name="FirstName"
                   value={input.FirstName}
-                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  className="appearance-none block w-full bg-slate-100  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="grid-first-name"
                   type="text"
                   placeholder="Jane"
@@ -107,7 +104,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                 <input
                   name="LastName"
                   value={input.LastName}
-                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  className="appearance-none bg-slate-100 block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="grid-first-name"
                   type="text"
                   placeholder="Jane"
@@ -127,7 +124,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
               <input
                 name="EmailAddress"
                 value={input.EmailAddress}
-                className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none bg-slate-100 block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-password"
                 type="email"
                 placeholder="example@gmail.com"
@@ -146,7 +143,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                 <input
                   name="PhoneNumber"
                   value={input.PhoneNumber}
-                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none bg-slate-100 block w-full  text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-last-name"
                   type="phone"
                   placeholder="0123 4567 89"
@@ -164,7 +161,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                 <input
                   name="DateOfBirth"
                   value={input.DateOfBirth}
-                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none bg-slate-100 block w-full  text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-last-name"
                   type="phone"
                   placeholder="YYYY-MM-DD"
@@ -188,7 +185,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                 <input
                   name="Address"
                   value={input.Address}
-                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none bg-slate-100 block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-password"
                   onChange={onChangeHandler}
                   required
@@ -206,7 +203,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                 <input
                   name="State"
                   value={input.State}
-                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none bg-slate-100 block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-password"
                   type="text"
                   onChange={onChangeHandler}
@@ -227,7 +224,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                 <input
                   name="City"
                   value={input.City}
-                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none bg-slate-100 block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-password"
                   type="text"
                   onChange={onChangeHandler}
@@ -245,7 +242,7 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
                 <input
                   name="ZipCode"
                   value={input.ZipCode}
-                  className="appearance-none block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none bg-slate-100 block w-full  text-gray-700 border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-password"
                   type="text"
                   onChange={onChangeHandler}
@@ -255,22 +252,19 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
             </div>
 
             <div class={`md:flex md:items-center justify-end `}>
-
-            
               <button
                 class={`shadow   bg-[#0f1235] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex gap-2 items-center justify-center`}
                 type="submit"
-               disabled={isSubmitting} 
+                disabled={isSubmitting}
               >
-              {isSubmitting && <span className="loading loading-spinner text-secondary"></span>}
-              <span>Submit</span>
+                {isSubmitting && (
+                  <span className="loading loading-spinner text-secondary"></span>
+                )}
+                <span>Submit</span>
               </button>
             </div>
           </form>
-          <Toaster
-  position="top-center"
-  reverseOrder={false}
-/>
+          <Toaster position="top-center" reverseOrder={false} />
         </div>
       </div>
     </div>

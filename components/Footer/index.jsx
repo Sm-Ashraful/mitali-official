@@ -21,7 +21,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="h-auto  w-full max-w-[1920px] mx-auto   pt-8 md:pt-20 flex flex-col justify-between">
+    <div className="h-auto  w-full max-w-[1920px] mx-auto   pt-8 md:pt-20 flex flex-col justify-between bg-white">
       <div className="flex flex-col md:flex-row px-2 md:px-16 pb-5 md:pb-0 gap-5 md:gap-10">
         <div className="w-full md:w-[25%] flex flex-col  items-center md:items-start">
           <div className="w-full md:w-[80%] flex justify-center items-center">
