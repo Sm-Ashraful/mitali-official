@@ -34,10 +34,11 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    console.log("Event is : ");
     try {
       // Send the formData to the server
       const res = await axiosInstance.post("/form/submit-lead", input);
-
+      console.log("Response: ", res);
       if (res.status === 200) {
         setIsSubmitting(false);
         toast.success(res.data.message);
@@ -59,7 +60,10 @@ const LeadForm = ({ isOpen, onClose, jobTitle }) => {
       }
     } catch (error) {
       setIsSubmitting(false);
-      toast.error(error.response.data.message || error?.error);
+      console.log("Error: ", error);
+      toast.error(
+        error.response.data.error || error.response.data.message || error?.error
+      );
     }
   };
   return (
